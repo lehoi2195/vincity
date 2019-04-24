@@ -1,10 +1,13 @@
 ﻿using ReactNative;
+using Windows.UI.ViewManagement;
 
 namespace VinhomesOceanPark
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
+    /// 
+
     sealed partial class App : ReactApplication
     {
         private readonly ReactNativeHost _host = new MainReactNativeHost();
@@ -15,6 +18,7 @@ namespace VinhomesOceanPark
         /// </summary>
         public App()
         {
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             this.InitializeComponent();
         }
 
