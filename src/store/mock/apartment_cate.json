@@ -1,0 +1,269 @@
+[
+  {
+    "code": "1PN",
+    "name": "1 P. Ngủ",
+    "model": "ApartmentCategory",
+    "types": [
+      {
+        "key": "1PN+1WC",
+        "nameType": "1PN / 1WC",
+        "featuredImage": "https://imgur.com/DWx9qS9.png",
+        "imagesGround": [
+          "https://imgur.com/OHPTpgW.png",
+          "https://imgur.com/pRyWPnG.png",
+          "https://imgur.com/JmuJxOt.png",
+          "https://imgur.com/1nMlcxL.png",
+          "https://imgur.com/4hS71sM.png"
+        ],
+        "imagesFurniture": [
+          "https://imgur.com/Ps5gKYll.png",
+          "https://imgur.com/rszMVdpl.png",
+          "https://imgur.com/kVd9vfwl.png",
+          "https://imgur.com/4788KVHl.png",
+          "https://imgur.com/P9rf924l.png",
+          "https://imgur.com/0rexYKVl.png"
+        ],
+        "images360": [
+          {
+            "name": "360",
+            "link": "http://178.128.86.192/VinCity/360/vincity/vincity/data/projects/vietnam/2018/vincity/index-1pn(ch09).html"
+          },
+          {
+            "name": "Walk Through",
+            "link": "https://my.matterport.com/show/?m=8GL8PEEJ6SZ"
+          }
+        ],
+        "standardTransferFile": "http://178.128.86.192/VinCity/TieuChuanBanGiao_VinCity.pdf",
+        "groundApartmentFile": "linkFile",
+        "badRoom": "1",
+        "bathRoom": "1",
+        "kitchenRoom": "1",
+        "description": "",
+        "heartWall": "31.2 ~ 37.5",
+        "clearSpan": "27.6 ~ 33.5",
+        "model": "ApartmentType",
+        "parentType": "1 P. Ngủ"
+      }
+    ]
+  },
+  {
+    "code": "1PN+1",
+    "name": "1 P. Ngủ +1",
+    "model": "ApartmentCategory",
+    "types": [
+      {
+        "key": "1PN+1+1WC",
+        "nameType": "1PN + 1 / 1WC",
+        "featuredImage": "https://imgur.com/yPPgqI7.png",
+        "imagesGround": [
+          "https://imgur.com/1fgOOoy.png",
+          "https://imgur.com/DSYPnJN.png",
+          "https://imgur.com/qPaRu11.png",
+          "https://imgur.com/8HuqBBp.png",
+          "https://imgur.com/WOp6gZN.png"
+        ],
+        "imagesFurniture": [
+          "https://imgur.com/Ps5gKYll.png",
+          "https://imgur.com/rszMVdpl.png",
+          "https://imgur.com/kVd9vfwl.png",
+          "https://imgur.com/4788KVHl.png",
+          "https://imgur.com/P9rf924l.png",
+          "https://imgur.com/0rexYKVl.png"
+        ],
+        "images360": [
+          {
+            "name": "360",
+            "link": "http://178.128.86.192/VinCity/360/vincity/vincity/data/projects/vietnam/2018/vincity/index-1pn+1(ch08).html"
+          },
+          {
+            "name": "Walk Through",
+            "link": "https://my.matterport.com/show/?m=GFsuFBkwYp4"
+          }
+        ],
+        "standardTransferFile": "http://178.128.86.192/VinCity/TieuChuanBanGiao_VinCity.pdf",
+        "groundApartmentFile": "linkFile",
+        "badRoom": "1+1",
+        "bathRoom": "1",
+        "kitchenRoom": "1",
+        "description": "",
+        "heartWall": "46.3 ~ 47.1",
+        "clearSpan": "42.9 ~ 43.4",
+        "model": "ApartmentType",
+        "parentType": "1 P. Ngủ +1"
+      }
+    ]
+  },
+  {
+    "code": "2PN+1",
+    "name": "2 P. Ngủ +1",
+    "model": "ApartmentCategory",
+    "types": [
+      {
+        "key": "2PN+1+1WC",
+        "nameType": "2PN + 1 / 1WC",
+        "featuredImage": "https://imgur.com/W4XLQ3i.png",
+        "imagesGround": [
+          "https://imgur.com/icXYzun.png",
+          "https://imgur.com/beOssVl.png",
+          "https://imgur.com/z7GCV6Y.png",
+          "https://imgur.com/o3lpNRw.png",
+          "https://imgur.com/mJI0bjj.png"
+        ],
+        "imagesFurniture": [
+          "https://imgur.com/Ps5gKYll.png",
+          "https://imgur.com/rszMVdpl.png",
+          "https://imgur.com/kVd9vfwl.png",
+          "https://imgur.com/4788KVHl.png",
+          "https://imgur.com/P9rf924l.png",
+          "https://imgur.com/0rexYKVl.png"
+        ],
+        "images360": [
+          {
+            "name": "360",
+            "link": "http://178.128.86.192/VinCity/360/vincity/vincity/data/projects/vietnam/2018/vincity/index-2pn(ch02).html"
+          },
+          {
+            "name": "Walk Through",
+            "link": "https://my.matterport.com/show/?m=TxCduxa5Qb8"
+          }
+        ],
+        "standardTransferFile": "http://178.128.86.192/VinCity/TieuChuanBanGiao_VinCity.pdf",
+        "groundApartmentFile": "linkFile",
+        "badRoom": "2+1",
+        "bathRoom": "1",
+        "kitchenRoom": "1",
+        "description": "",
+        "heartWall": "60.0 ~ 69.4",
+        "clearSpan": "55.3 ~ 63.6",
+        "model": "ApartmentType",
+        "parentType": "2 P. Ngủ +1"
+      },
+      {
+        "key": "2PN+1+2WC+HCN",
+        "nameType": "2PN + 1 / 2WC Loại 1",
+        "featuredImage": "https://imgur.com/W4XLQ3i.png",
+        "imagesGround": [
+          "https://imgur.com/FP4hGSS.png",
+          "https://imgur.com/CzpEW0e.png",
+          "https://imgur.com/FaM3uBT.png",
+          "https://imgur.com/6pVUga4.png",
+          "https://imgur.com/sX3C7Fo.png"
+        ],
+        "imagesFurniture": [
+          "https://imgur.com/Ps5gKYll.png",
+          "https://imgur.com/rszMVdpl.png",
+          "https://imgur.com/kVd9vfwl.png",
+          "https://imgur.com/4788KVHl.png",
+          "https://imgur.com/P9rf924l.png",
+          "https://imgur.com/0rexYKVl.png"
+        ],
+        "images360": [
+          {
+            "name": "360",
+            "link": "http://178.128.86.192/VinCity/360/vincity/vincity/data/projects/vietnam/2018/vincity/index-2pn+1(ch06).html"
+          },
+          {
+            "name": "Walk Through",
+            "link": "https://my.matterport.com/show/?m=paMCRcpfPAj"
+          }
+        ],
+        "standardTransferFile": "http://178.128.86.192/VinCity/TieuChuanBanGiao_VinCity.pdf",
+        "groundApartmentFile": "linkFile",
+        "badRoom": "2+1",
+        "bathRoom": "2",
+        "kitchenRoom": "1",
+        "description": "Căn hình chữ nhật",
+        "heartWall": "60.0 ~ 69.4",
+        "clearSpan": "55.3 ~ 63.6",
+        "model": "ApartmentType",
+        "parentType": "2 P. Ngủ +1"
+      },
+      {
+        "key": "2PN+1+2WC+L",
+        "nameType": "2PN + 1 / 2WC Loại 2",
+        "featuredImage": "https://imgur.com/W4XLQ3i.png",
+        "imagesGround": [
+          "https://imgur.com/xbN8qPb.png",
+          "https://imgur.com/O0F6Igv.png",
+          "https://imgur.com/U4P6avo.png",
+          "https://imgur.com/5MMMDDK.png"
+        ],
+        "imagesFurniture": [
+          "https://imgur.com/Ps5gKYll.png",
+          "https://imgur.com/rszMVdpl.png",
+          "https://imgur.com/kVd9vfwl.png",
+          "https://imgur.com/4788KVHl.png",
+          "https://imgur.com/P9rf924l.png",
+          "https://imgur.com/0rexYKVl.png"
+        ],
+        "images360": [
+          {
+            "name": "360",
+            "link": "http://178.128.86.192/VinCity/360/vincity/vincity/data/projects/vietnam/2018/vincity/index-2pn(ch03).html"
+          },
+          {
+            "name": "Walk Through",
+            "link": "https://my.matterport.com/show/?m=FPkE5SEV8BE"
+          }
+        ],
+        "standardTransferFile": "http://178.128.86.192/VinCity/TieuChuanBanGiao_VinCity.pdf",
+        "groundApartmentFile": "linkFile",
+        "badRoom": "2+1",
+        "bathRoom": "2",
+        "kitchenRoom": "1",
+        "description": "Căn chữ L dài",
+        "heartWall": "60.0 ~ 69.4",
+        "clearSpan": "55.3 ~ 63.6",
+        "model": "ApartmentType",
+        "parentType": "2 P. Ngủ +1"
+      }
+    ]
+  },
+  {
+    "code": "3PN",
+    "name": "3 P. Ngủ",
+    "model": "ApartmentCategory",
+    "types": [
+      {
+        "key": "3PN+2WC",
+        "nameType": "3PN / 2WC",
+        "featuredImage": "https://imgur.com/Gr5PBsY.png",
+        "imagesGround": [
+          "https://imgur.com/IEkk9Qt.png",
+          "https://imgur.com/tDiI0be.png",
+          "https://imgur.com/iI7lrhu.png",
+          "https://imgur.com/yAv4uxP.png",
+          "https://imgur.com/F18BA4O.png"
+        ],
+        "imagesFurniture": [
+          "https://imgur.com/Ps5gKYll.png",
+          "https://imgur.com/rszMVdpl.png",
+          "https://imgur.com/kVd9vfwl.png",
+          "https://imgur.com/4788KVHl.png",
+          "https://imgur.com/P9rf924l.png",
+          "https://imgur.com/0rexYKVl.png"
+        ],
+        "images360": [
+          {
+            "name": "360",
+            "link": "http://178.128.86.192/VinCity/360/vincity/vincity/data/projects/vietnam/2018/vincity/index-3pn(ch16).html"
+          },
+          {
+            "name": "Walk Through",
+            "link": "https://my.matterport.com/show/?m=QWeX6rp4QVn"
+          }
+        ],
+        "standardTransferFile": "http://178.128.86.192/VinCity/TieuChuanBanGiao_VinCity.pdf",
+        "groundApartmentFile": "linkFile",
+        "badRoom": "3",
+        "bathRoom": "2",
+        "kitchenRoom": "1",
+        "description": "",
+        "heartWall": "79.9 ~ 80.3",
+        "clearSpan": "73.7 ~ 74.9",
+        "model": "ApartmentType",
+        "parentType": "3 P. Ngủ"
+      }
+    ]
+  }
+]

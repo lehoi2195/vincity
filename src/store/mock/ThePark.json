@@ -1,0 +1,114 @@
+[
+  {
+    "key": "P02",
+    "type": "L2",
+    "name": "Toà P2",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P05",
+    "type": "L1",
+    "name": "Toà P5",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P11",
+    "type": "L1",
+    "name": "Toà P11",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P12",
+    "type": "L2",
+    "name": "Toà P12",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P18",
+    "type": "L2",
+    "name": "Toà P18",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P19",
+    "type": "L1",
+    "name": "Toà P19",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P03",
+    "type": "U1",
+    "name": "Toà P3",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P06",
+    "type": "U1",
+    "name": "Toà P6",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P07",
+    "type": "U1",
+    "name": "Toà P7",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P08",
+    "type": "U2",
+    "name": "Toà P8",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P09",
+    "type": "U2",
+    "name": "Toà P9",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P16",
+    "type": "U1",
+    "name": "Toà P16",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P01",
+    "type": "Z1",
+    "name": "Toà P1",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P10",
+    "type": "T1",
+    "name": "Toà 10",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P15",
+    "type": "T1",
+    "name": "Toà 15",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  },
+  {
+    "key": "P17",
+    "type": "T2",
+    "name": "Toà P17",
+    "zone": "The Park",
+    "project": "Ocean Park"
+  }
+]

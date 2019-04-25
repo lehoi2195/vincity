@@ -1,0 +1,187 @@
+{
+  "L2": {
+    "key": "L2",
+    "name": "L2",
+    "type": "L",
+    "floors": [
+      [
+        {
+          "key": "L_CH01",
+          "name": "CH01",
+          "clearSpan": "33.5",
+          "heartWall": "37.5",
+          "type": "1PN+1+1WC",
+          "image": "1PN_1WC_angle_4"
+        },
+        {
+          "key": "L_CH02",
+          "name": "CH02",
+          "clearSpan": "55.6",
+          "heartWall": "60.1",
+          "type": "2PN+1+1WC",
+          "image": "2PN+1_1WC_angle_7"
+        },
+        {
+          "key": "L_CH03",
+          "name": "CH03",
+          "clearSpan": "55.4 ~ 55.6",
+          "heartWall": "60.1",
+          "type": "2PN+1+1WC",
+          "image": "2PN+1_1WC_angle_8"
+        },
+        {
+          "key": "L_CH05A",
+          "name": "CH05A",
+          "clearSpan": "62.6",
+          "heartWall": "69.2",
+          "type": "2PN+1+2WC+HCN",
+          "image": "2PN+1_2WC_1_angle_4"
+        },
+        {
+          "key": "L_CH05",
+          "name": "CH05",
+          "clearSpan": "73.7",
+          "heartWall": "79.9",
+          "type": "3PN+2WC",
+          "image": "3PN_2WC_angle_2"
+        },
+        {
+          "key": "L_CH06",
+          "name": "CH06",
+          "clearSpan": "55.3 ~ 55.5",
+          "heartWall": "60.1",
+          "type": "2PN+1+1WC",
+          "image": "2PN+1_1WC_angle_9"
+        },
+        {
+          "key": "L_CH08A",
+          "name": "CH08A",
+          "heartWall": "55.6",
+          "clearSpan": "60.1",
+          "type": "2PN+1+1WC",
+          "image": "2PN+1_1WC_angle_10"
+        },
+        {
+          "key": "L_CH08",
+          "name": "CH08",
+          "heartWall": "42.9",
+          "clearSpan": "46.3",
+          "type": "1PN+1+1WC",
+          "image": "1PN+1_1WC_angle_4"
+        },
+        {
+          "key": "L_CH09",
+          "name": "CH09",
+          "heartWall": "43.0",
+          "clearSpan": "46.5",
+          "type": "1PN+1+1WC",
+          "image": "1PN+1_1WC_angle_5"
+        },
+        {
+          "key": "L_CH10",
+          "name": "CH10",
+          "heartWall": "42.9",
+          "clearSpan": "46.3",
+          "type": "1PN+1+1WC",
+          "image": "1PN+1_1WC_angle_4"
+        },
+        {
+          "key": "L_CH11A",
+          "name": "CH11A",
+          "heartWall": "74.9",
+          "clearSpan": "80.3",
+          "type": "3PN+2WC",
+          "image": "3PN_2WC_angle_3"
+        },
+        {
+          "key": "L_CH11",
+          "name": "CH11",
+          "heartWall": "63.6",
+          "clearSpan": "69.4",
+          "type": "2PN+1+2WC+HCN",
+          "image": "2PN+1_2WC_1_angle_2"
+        },
+        {
+          "key": "L_CH12",
+          "name": "CH12",
+          "heartWall": "43.4",
+          "clearSpan": "47.1",
+          "type": "1PN+1+1WC",
+          "image": "1PN+1_1WC_angle_6"
+        },
+        {
+          "key": "L_CH15A",
+          "name": "CH15A",
+          "heartWall": "62.4",
+          "clearSpan": "67.4",
+          "type": "2PN+1+2WC+L",
+          "image": "2PN+1_2WC_2_angle_1"
+        },
+        {
+          "key": "L_CH15",
+          "name": "CH15",
+          "heartWall": "62.7",
+          "clearSpan": "67.9",
+          "type": "2PN+1+2WC+L",
+          "image": "2PN+1_2WC_2_angle_2"
+        },
+        {
+          "key": "L_CH16",
+          "name": "CH16",
+          "heartWall": "62.4 ~ 62.6",
+          "clearSpan": "67.9",
+          "type": "2PN+1+2WC+L",
+          "image": "2PN+1_2WC_2_angle_1"
+        },
+        {
+          "key": "L_CH17",
+          "name": "CH17",
+          "heartWall": "74.3 ~ 74.6",
+          "clearSpan": "79.9",
+          "type": "3PN+2WC",
+          "image": "3PN_2WC_angle_4"
+        },
+        {
+          "key": "L_CH18",
+          "name": "CH18",
+          "heartWall": "62.6 ~ 62.8",
+          "clearSpan": "69.2",
+          "type": "2PN+1+2WC+HCN",
+          "image": "2PN+1_2WC_1_angle_1"
+        },
+        {
+          "key": "L_CH19",
+          "name": "CH19",
+          "heartWall": "55.4 ~ 55.6",
+          "clearSpan": "60.1",
+          "type": "2PN+1+1WC",
+          "image": "2PN+1_1WC_angle_1"
+        },
+        {
+          "key": "L_CH20",
+          "name": "CH20",
+          "heartWall": "55.6",
+          "clearSpan": "60.0",
+          "type": "2PN+1+1WC",
+          "image": "2PN+1_1WC_angle_2"
+        },
+        {
+          "key": "L_CH21",
+          "name": "CH21",
+          "heartWall": "43.0",
+          "clearSpan": "46.7",
+          "type": "1PN+1+1WC",
+          "image": "1PN+1_1WC_angle_1"
+        },
+        {
+          "key": "L_CH22",
+          "name": "CH22",
+          "heartWall": "27.8",
+          "clearSpan": "31.2",
+          "type": "1PN+1WC",
+          "image": "1PN_1WC_angle_1"
+        }
+      ]
+    ]
+  }
+}
