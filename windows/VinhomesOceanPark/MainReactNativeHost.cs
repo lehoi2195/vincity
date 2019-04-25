@@ -1,5 +1,6 @@
 ﻿using ReactNative;
 using ReactNative.Modules.Core;
+using RNDeviceInfo;
 using ReactNative.Shell;
 using System.Collections.Generic;
 
@@ -23,7 +24,8 @@ namespace VinhomesOceanPark
 
         protected override List<IReactPackage> Packages => new List<IReactPackage>
         {
-            new MainReactPackage()
+            new MainReactPackage(),
+            new RNDeviceInfoPackage()
         };
     }
 }

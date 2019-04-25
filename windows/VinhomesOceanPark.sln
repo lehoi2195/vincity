@@ -20,6 +20,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Facebook.Yoga.Shared", "..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "yoga.uwp", "..\node_modules\react-native-windows\Yoga\csharp\Yoga\Yoga.Universal.vcxproj", "{2EACF721-73B5-46AE-9775-4A8674D05A9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RNDeviceInfo", "..\node_modules\react-native-device-info\windows\RNDeviceInfo\RNDeviceInfo.csproj", "{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\node_modules\react-native-windows\Yoga\csharp\Facebook.Yoga\Facebook.Yoga.Shared.projitems*{91c42d32-291d-4b72-90b4-551663d60b8b}*SharedItemsImports = 13
@@ -174,6 +176,30 @@ Global
 		{2EACF721-73B5-46AE-9775-4A8674D05A9C}.ReleaseBundle|x64.Build.0 = Release|x64
 		{2EACF721-73B5-46AE-9775-4A8674D05A9C}.ReleaseBundle|x86.ActiveCfg = Release|Win32
 		{2EACF721-73B5-46AE-9775-4A8674D05A9C}.ReleaseBundle|x86.Build.0 = Release|Win32
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Debug|ARM.ActiveCfg = Debug|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Debug|ARM.Build.0 = Debug|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Debug|x64.ActiveCfg = Debug|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Debug|x64.Build.0 = Debug|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Debug|x86.ActiveCfg = Debug|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Debug|x86.Build.0 = Debug|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.DebugBundle|ARM.ActiveCfg = Debug|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.DebugBundle|ARM.Build.0 = Debug|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.DebugBundle|x64.ActiveCfg = Debug|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.DebugBundle|x64.Build.0 = Debug|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.DebugBundle|x86.ActiveCfg = Debug|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.DebugBundle|x86.Build.0 = Debug|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Release|ARM.ActiveCfg = Release|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Release|ARM.Build.0 = Release|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Release|x64.ActiveCfg = Release|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Release|x64.Build.0 = Release|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Release|x86.ActiveCfg = Release|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.Release|x86.Build.0 = Release|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.ReleaseBundle|ARM.ActiveCfg = Release|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.ReleaseBundle|ARM.Build.0 = Release|ARM
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.ReleaseBundle|x64.ActiveCfg = Release|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.ReleaseBundle|x64.Build.0 = Release|x64
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.ReleaseBundle|x86.ActiveCfg = Release|x86
+		{A8C0D290-F49E-4ACF-ABF4-FF8A95D29887}.ReleaseBundle|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

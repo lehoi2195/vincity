@@ -1,47 +1,27 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
+import { Provider } from "react-redux";
 import React, { Component } from "react";
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions
-} from "react-native";
-import images from "./src/assets/images";
-const instructions =
-  "Press Ctrl+R to reload,\n" + "Shift+F10 or shake for dev menu";
-const { width, height } = Dimensions.get("window");
-export default class App extends Component<{}> {
+import { StyleProvider } from "native-base";
+// import Orientation from "react-native-orientation";
+// import SplashScreen from "react-native-splash-screen";
+
+import getTheme from "./theme/components";
+import variables from "./theme/variables";
+import AppContainer from "./src";
+import store from "./src/store";
+
+console.disableYellowBox = true;
+
+export default class App extends Component {
+  componentDidMount() {}
+
+  componentWillUnmount() {}
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={images.background} style={{ width, height }} />
-      </View>
+      <StyleProvider style={getTheme(variables)}>
+        <Provider store={store}>
+          <AppContainer />
+        </Provider>
+      </StyleProvider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
