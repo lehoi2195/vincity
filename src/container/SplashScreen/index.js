@@ -8,18 +8,34 @@ import React, { Component } from "react";
 import {
   Platform,
   StyleSheet,
-  Text,
-  View,
   Image,
-  Dimensions
+  Dimensions,
+  TouchableOpacity,
+  ImageBackground
 } from "react-native";
+import { Text, View } from "native-base";
 import images from "../../assets/images";
 const { width, height } = Dimensions.get("window");
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={images.background} style={{ width, height }} />
+        <ImageBackground
+          source={images.background}
+          style={{
+            width,
+            height,
+            justifyContent: "center",
+            alignItems: "center", 
+          
+          }}
+        >
+          <TouchableOpacity 
+          onPress={()=>this.props.navigation.navigate('HomeScreen')}
+          style={styles.touch}>
+            <Text size20 white>Khám phá</Text>
+          </TouchableOpacity>
+        </ImageBackground>
       </View>
     );
   }
@@ -32,14 +48,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
+  touch:{
+    backgroundColor: '#FFDB6B', 
+    paddingVertical: 10,
+    paddingHorizontal : 30,
+    borderRadius: 20, 
+    justifyContent: "center",
+    alignItems: "center", 
+    shadowColor: 'rgba(255, 203, 42, 0.29)',
+    shadowOffset: {width: 5, height:10},
+    shadowRadius: 10, 
+    shadowOpacity: 1
   }
 });
