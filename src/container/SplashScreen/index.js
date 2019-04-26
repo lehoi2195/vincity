@@ -13,7 +13,7 @@ import {
   Image,
   Dimensions
 } from "react-native";
-import images from "./src/assets/images";
+import images from "../../assets/images";
 const { width, height } = Dimensions.get("window");
 export default class App extends Component {
   render() {

@@ -2,12 +2,10 @@ import React from "react";
 import { Platform, Image } from "react-native";
 import {
   createStackNavigator,
-  createBottomTabNavigator,
-  createSwitchNavigator,
-  createAppContainer
 } from "react-navigation";
 import { Text, View } from "native-base";
-
+import SplashScreen from "./container/SplashScreen";
+import HomeScreen from "./container/HomeScreen";
 const AppStack = createStackNavigator(
   {
     HomeScreen: { screen: HomeScreen },
@@ -24,7 +22,7 @@ const AppStack = createStackNavigator(
   }
 );
 
-const AppNavigator = createStackNavigator(
+const AppContainer = createStackNavigator(
   {
     SplashScreen: { screen: SplashScreen },
   },
@@ -36,6 +34,5 @@ const AppNavigator = createStackNavigator(
     }
   }
 );
-const AppContainer = createAppContainer(AppNavigator);
 
 export default AppContainer;
