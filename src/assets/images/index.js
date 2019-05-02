@@ -18,5 +18,9 @@ export default {
     supportActive : require('./TabBar/supportActive.png'), 
 
     contact: require('./TabBar/contact.png'), 
-    contactActive: require('./TabBar/contactActive.png')
+    contactActive: require('./TabBar/contactActive.png'),
+
+    btnExplorer : require('./Home/btnExplorer.png'),
+    banner : require('./Home/banner.png'),
+    logoTransparent : require('./Home/logo_transparent.png')
 }

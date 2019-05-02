@@ -111,9 +111,10 @@ const SwitchScreen = createSwitchNavigator(
 
 class Main extends Component {
   state = {
-    index: 0
+    index: 0,
+    explorer: false
   };
-  renderTab = (index) => {
+  renderTab = index => {
     switch (index) {
       case 0:
         return "ProjectStack";
@@ -140,7 +141,7 @@ class Main extends Component {
         })
       );
   };
-  render() {
+  renderMain() {
     return (
       <View style={{ flex: 1, flexDirection: "row" }}>
         {/* {this.renderTab()} */}
@@ -153,6 +154,13 @@ class Main extends Component {
           <TabBarRight onFocus={this.onFocus} index={this.state.index} />
         </View>
       </View>
+    );
+  }
+  render() {
+    return !this.state.explorer ? (
+      <SplashScreen onExplorer={() => this.setState({ explorer: true })} />
+    ) : (
+      this.renderMain()
     );
   }
 }

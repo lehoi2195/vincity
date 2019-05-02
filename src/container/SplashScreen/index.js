@@ -30,10 +30,11 @@ export default class App extends Component {
           
           }}
         >
+          <Image source={images.logoTransparent}/>
           <TouchableOpacity 
-          onPress={()=>this.props.navigation.navigate('HomeScreen')}
-          style={styles.touch}>
-            <Text size20 white>Khám phá</Text>
+          onPress={()=>this.props.onExplorer()}
+          >
+            <Image source={images.btnExplorer}/>
           </TouchableOpacity>
         </ImageBackground>
       </View>

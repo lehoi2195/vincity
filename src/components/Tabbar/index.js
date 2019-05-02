@@ -23,7 +23,7 @@ export default class Tabbar extends Component {
                     marginTop: 2,
                 }}
                     source={focused ? srcActive : srcDeactive} />
-                <Text size10 style={{ color: focused ? '#0B3547' : '#57585B', textAlign: 'center' }}>{label}</Text>
+                <Text size10 style={{ color: focused ? 'white' : '#cacaca', textAlign: 'center' }}>{label}</Text>
                 {!!countUnRead && countUnRead > 0 && !!isBadge ?
                     <View style={{
                         position: 'absolute',
