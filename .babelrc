@@ -1,3 +1,30 @@
 {
-  "presets": ["module:metro-react-native-babel-preset"]
+  "presets": ["module:metro-react-native-babel-preset", "@babel/preset-flow"],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@src": "./src",
+          "components": "./src/components",
+          "container": "./src/container",
+          "assets": "./src/assets",
+          "theme": "./theme",
+          "constants": "./src/constants",
+          "store": "./src/store",
+        }
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
 }
