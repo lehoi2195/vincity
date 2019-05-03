@@ -22,5 +22,12 @@ export default {
 
     btnExplorer : require('./Home/btnExplorer.png'),
     banner : require('./Home/banner.png'),
-    logoTransparent : require('./Home/logo_transparent.png')
+    logoTransparent : require('./Home/logo_transparent.png'),
+
+    //contact 
+    address : require('./Contact/address.png'),
+    call : require('./Contact/call.png'),
+    email : require('./Contact/email.png'),
+    facebook: require('./Contact/facebook.png'),
+    location : require('./Contact/location.png')
 }
