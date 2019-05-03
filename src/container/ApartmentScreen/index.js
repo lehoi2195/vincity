@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import images from "../../assets/images";
 const { width, height } = Dimensions.get("window");
-export default class App extends Component {
+export default class ApartmentScreen extends Component {
   render() {
     return (
       <View style={styles.container}>

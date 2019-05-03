@@ -76,13 +76,22 @@ export default (variables = variable) => {
 
     //fontFamily
     '.normal': {
-      fontFamily: 'Montserrat-Regular',
+      fontFamily: 'Assets/Montserrat-Regular.ttf#Montserrat Regular',
     },
     '.medium': {
-      fontFamily: 'Montserrat-Medium'
+      fontFamily: 'Assets/Montserrat-Medium.ttf#Montserrat Medium'
+    },
+    '.mediumitalic': {
+      fontFamily: 'Assets/Montserrat-MediumItalic.ttf#Montserrat Medium'
+    },
+    '.semibold': {
+      fontFamily: 'Assets/Montserrat-SemiBold.ttf#Montserrat SemiBold',
     },
     '.bold': {
-      fontFamily: 'Montserrat-SemiBold',
+      fontFamily: 'Assets/Montserrat-Bold.ttf#Montserrat Bold',
+    },
+    '.extrabold': {
+      fontFamily: 'Assets/Montserrat-ExtraBold.ttf#Montserrat ExtraBold',
     },
   };
 

@@ -25,16 +25,19 @@ export default class App extends Component {
           style={{
             width,
             height,
-            justifyContent: "center",
-            alignItems: "center", 
-          
+            justifyContent: "space-between",
+            alignItems: "center"
           }}
         >
-          <Image source={images.logoTransparent}/>
-          <TouchableOpacity 
-          onPress={()=>this.props.onExplorer()}
-          >
-            <Image source={images.btnExplorer}/>
+          <Image
+            source={images.logoTransparent}
+            style={{ width: 280, height: 220, marginTop: 188 }}
+          />
+          <TouchableOpacity onPress={() => this.props.onExplorer()}>
+            <Image
+              style={{ width: 380, height: 80, marginBottom: 188 }}
+              source={images.btnExplorer}
+            />
           </TouchableOpacity>
         </ImageBackground>
       </View>
@@ -49,16 +52,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   },
-  touch:{
-    backgroundColor: '#FFDB6B', 
+  touch: {
+    backgroundColor: "#FFDB6B",
     paddingVertical: 10,
-    paddingHorizontal : 30,
-    borderRadius: 20, 
+    paddingHorizontal: 30,
+    borderRadius: 20,
     justifyContent: "center",
-    alignItems: "center", 
-    shadowColor: 'rgba(255, 203, 42, 0.29)',
-    shadowOffset: {width: 5, height:10},
-    shadowRadius: 10, 
+    alignItems: "center",
+    shadowColor: "rgba(255, 203, 42, 0.29)",
+    shadowOffset: { width: 5, height: 10 },
+    shadowRadius: 10,
     shadowOpacity: 1
   }
 });

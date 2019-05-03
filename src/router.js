@@ -9,13 +9,19 @@ import { Text, View } from "native-base";
 import SplashScreen from "./container/SplashScreen";
 import HomeScreen from "./container/HomeScreen";
 import TabBarRight from "./components/TabbarRight";
+
+import ApartmentScreen from './container/ApartmentScreen';
+import VoucherScreen from './container/VoucherScreen';
+import GalleryScreen from './container/GalleryScreen';
+import SupportScreen from './container/SupportScreen';
+import ContactScreen from './container/ContactScreen';
+
 const ProjectStack = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen },
     HomeScreen: { screen: HomeScreen }
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "HomeScreen",
     headerMode: "none",
     navigationOptions: {
       header: null
@@ -25,11 +31,10 @@ const ProjectStack = createStackNavigator(
 
 const ApartmentStack = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen },
-    HomeScreen: { screen: HomeScreen }
+    ApartmentScreen: { screen: ApartmentScreen },
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "ApartmentScreen",
     headerMode: "none",
     navigationOptions: {
       header: null
@@ -39,11 +44,10 @@ const ApartmentStack = createStackNavigator(
 
 const VoucherStack = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen },
-    HomeScreen: { screen: HomeScreen }
+    VoucherScreen: { screen: VoucherScreen },
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "VoucherScreen",
     headerMode: "none",
     navigationOptions: {
       header: null
@@ -53,10 +57,10 @@ const VoucherStack = createStackNavigator(
 
 const GalleryStack = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen }
+    GalleryScreen: { screen: GalleryScreen }
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "GalleryScreen",
     headerMode: "none",
     navigationOptions: {
       header: null
@@ -66,10 +70,10 @@ const GalleryStack = createStackNavigator(
 
 const SupportStack = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen }
+    SupportScreen: { screen: SupportScreen }
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "SupportScreen",
     headerMode: "none",
     navigationOptions: {
       header: null
@@ -79,10 +83,10 @@ const SupportStack = createStackNavigator(
 
 const ContactStack = createStackNavigator(
   {
-    SplashScreen: { screen: SplashScreen }
+    ContactScreen: { screen: ContactScreen }
   },
   {
-    initialRouteName: "SplashScreen",
+    initialRouteName: "ContactScreen",
     headerMode: "none",
     navigationOptions: {
       header: null

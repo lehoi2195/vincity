@@ -18,7 +18,7 @@ namespace VinhomesOceanPark
         /// </summary>
         public App()
         {
-            ///ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             this.InitializeComponent();
         }
 

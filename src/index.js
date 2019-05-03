@@ -4,7 +4,6 @@ import { Root } from "native-base";
 import { connect } from "react-redux";
 
 import Router from "./router";
-import SplashScreen from './container/SplashScreen'
 
 export default class AppContainer extends Component {
   constructor(props) {
