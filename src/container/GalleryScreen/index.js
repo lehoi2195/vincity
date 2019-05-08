@@ -30,21 +30,21 @@ import configs from "@src/constants/configs";
 import PhotoLibrary from "./PhotoLibary";
 import VideoLibrary from "./VideoLibrary";
 import { connect } from "react-redux";
+import DocumentLibary from "./DocumentLibary";
 class GalleryScreen extends Component {
-  state = {
-    index: 4
-  };
-  onPressItem = index => {
-    this.setState({ index });
-  };
+ 
+ 
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [], 
+      index : 0
     };
     this.watcher = null;
   }
-
+  onPressItem = index => {
+    this.setState({ index });
+  };
   getDocument = query => {
     const { token, getDocumentLibrary } = this.props;
     this.setState({ data: [] });
@@ -60,27 +60,60 @@ class GalleryScreen extends Component {
   componentDidMount() {
     this.getDocument(`?project=${configs.projectId}`);
   }
-
-  render() {
+  renderHeaderTitle = ()=>{
+    switch(this.state.index){
+      case 0 : return "Thư viện ảnh";
+      case 1 : return "Thư viện Video";
+      case 2 : return "Tài liệu";
+    }
+  }
+  renderContent = () => {
     const { data } = this.state;
-
-    return (
-      <View row style={styles.container}>
-        <View style={AppStyles.content}>
-          <Header />
-          {/* <PhotoLibrary
+    switch (this.state.index) {
+      case 0:
+        return (
+          <PhotoLibrary
             tabLabel="Hình ảnh"
             loading={this.props.loading}
             data={data.images || []}
             allImages={data.listImages || []}
             arrFolderImages={data.arrFolderImages || []}
             navigation={this.props.navigation}
-          /> */}
+          />
+        );
+      case 1:
+        return (
           <VideoLibrary
             tabLabel="Video"
             loading={this.props.loading}
             data={data.video || {}}
+            navigation={this.props.navigation}
           />
+        );
+
+      case 2:
+        return (
+          <DocumentLibary
+            type={2}
+            projectId={configs.projectId}
+            tabLabel="Tài liệu"
+            loading={this.props.loading}
+            data={data.documents || []}
+            navigation={this.props.navigation}
+          
+          />
+        );
+    }
+  };
+
+  render() {
+   
+
+    return (
+      <View row style={styles.container}>
+        <View style={AppStyles.content}>
+          <Header title={this.renderHeaderTitle()}/>
+          {this.renderContent()}
         </View>
         <View
           style={[AppStyles.sidebar, { paddingTop: 108, paddingRight: 42 }]}

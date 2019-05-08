@@ -32,5 +32,7 @@ export default {
     location : require('./Contact/location.png'),
 
     //gallery 
-    iconPlay : require('./Gallery/iconPlay.png')
+    iconPlay : require('./Gallery/iconPlay.png'), 
+    iconFolder : require('./Gallery/iconFolder.png'),
+    iconFile : require('./Gallery/iconFile.png')
 }

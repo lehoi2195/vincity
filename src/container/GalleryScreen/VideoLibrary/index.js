@@ -23,7 +23,7 @@ export default class VideoLibrary extends Component {
     super(props);
     this.state = {
       data: {},
-      containerWidth: 348
+      containerWidth: 350
     };
   }
 
@@ -39,7 +39,7 @@ export default class VideoLibrary extends Component {
         key={index}
         style={[
           styles.wrapper,
-          { marginLeft: index % 3 === 0 ? 0 : 30, marginRight: 30 }
+          { marginLeft: index % 3 === 0 ? 0 : 30, marginRight: 30 , marginVertical: 10 }
         ]}
       >
         <View
@@ -116,10 +116,10 @@ export default class VideoLibrary extends Component {
     return (
       <View style={{ flex: 1 }}>
         <FlatList
-          contentContainerStyle={{ paddingVertical: 60 }}
+          contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={3}
           data={data.links}
-          key={index => index.toString()}
+          keyExtractor={index => index.toString()}
           renderItem={this.renderYoutube}
         />
       </View>
@@ -134,6 +134,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 7,
-    width: 348
+    width: 350
   }
 });

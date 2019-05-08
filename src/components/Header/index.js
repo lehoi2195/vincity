@@ -6,7 +6,8 @@ import images from "../../assets/images";
 export default class Header extends Component {
   static defaultProps = {
     title: "",
-    theme: "dark"
+    theme: "dark",
+    showBack : false,
   };
   state = {};
   render() {
@@ -19,13 +20,13 @@ export default class Header extends Component {
             size30
             style={{ color: theme === "dark" ? "#434345" : "white" }}
           >
-            Thư viên ảnh
+            {this.props.title}
           </Text>
-          <View style={{ marginRight: 56 }}>
+          {this.props.showBack?<View style={{ marginRight: 56 }}>
             <Text style={{ color: theme === "dark" ? "#434345" : "white" }}>
               Quay lại
             </Text>
-          </View>
+          </View>:null}
         </View>
         <View
           style={{

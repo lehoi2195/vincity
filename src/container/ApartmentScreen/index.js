@@ -8,19 +8,30 @@ import React, { Component } from "react";
 import {
   Platform,
   StyleSheet,
-  Text,
-  View,
   Image,
   Dimensions
 } from "react-native";
+import {View, Text} from 'native-base';
+
 import images from "../../assets/images";
 const { width, height } = Dimensions.get("window");
 export default class ApartmentScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={images.banner} />
-      </View>
+      <View center style={{ flex: 1 }}>
+          <Image source={images.logoTransparent} />
+          <Text
+            black
+            size14
+            style={{
+              paddingVertical: 10,
+              paddingHorizontal: 50,
+              textAlign: "center"
+            }}
+          >
+            Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
+          </Text>
+        </View>
     );
   }
 }

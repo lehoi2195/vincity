@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Tabbar from "../Tabbar";
 import { View, Text } from "native-base";
-import images from "assets/images";
+import images from "@assets/images";
 const tabInfo = [
   {
     label: "Dự án",

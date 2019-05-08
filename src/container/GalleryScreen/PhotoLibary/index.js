@@ -18,7 +18,6 @@ export default class PhotoLibrary extends Component {
 
   render() {
     const { data } = this.props;
-    const newData = [...data, ...data, ...data, ...data, ...data];
     if (data.length === 0) {
       return (
         <View center style={{ flex: 1 }}>
@@ -40,9 +39,9 @@ export default class PhotoLibrary extends Component {
     return (
       <View style={styles.wrapper}>
         <FlatList
-          contentContainerStyle={{ paddingVertical: 94 }}
+          contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={4}
-          data={newData}
+          data={data}
           keyExtractor={index => index.toString()}
           renderItem={({ item, index }) => {
             return (
@@ -50,7 +49,7 @@ export default class PhotoLibrary extends Component {
                 onPress={() => this.onPress(item.name, item)}
                 style={[
                   styles.folder,
-                  { marginLeft: index % 4 === 0 ? 0 : 25, marginRight: 25 }
+                  { marginLeft: index % 4 === 0 ? 0 : 25, marginRight: 25, marginVertical: 10 }
                 ]}
               >
                 <View>

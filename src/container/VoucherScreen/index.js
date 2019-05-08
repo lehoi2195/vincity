@@ -1,26 +1,31 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from "react";
 import {
   Platform,
   StyleSheet,
-  Text,
-  View,
   Image,
   Dimensions
 } from "react-native";
 import images from "../../assets/images";
+import {View, Text} from 'native-base';
 const { width, height } = Dimensions.get("window");
 export default class VoucherScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={images.banner} />
-      </View>
+      <View center style={{ flex: 1 }}>
+          <Image source={images.logoTransparent} />
+          <Text
+            black
+            size14
+            style={{
+              paddingVertical: 10,
+              paddingHorizontal: 50,
+              textAlign: "center"
+            }}
+          >
+            Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
+          </Text>
+        </View>
     );
   }
 }

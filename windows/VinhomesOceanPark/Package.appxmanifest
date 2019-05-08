@@ -1,48 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
-
-  <Identity
-    Name="0e5a1f76-fdf2-4710-85b7-ac1e9954d1fa"
-    Publisher="CN=Twinger"
-    Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="0e5a1f76-fdf2-4710-85b7-ac1e9954d1fa" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="62761AnhPham.VinhomesOceanPark" Publisher="CN=7C96AA88-635F-478F-845B-D002C4237101" Version="1.0.7.0" />
+  <mp:PhoneIdentity PhoneProductId="f0d01c7f-5468-4069-9efb-7740e239492c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>VinhomesOceanPark</DisplayName>
-    <PublisherDisplayName>React Native for UWP</PublisherDisplayName>
+    <DisplayName>Vinhomes Ocean Park</DisplayName>
+    <PublisherDisplayName>Anh Pham</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="VinhomesOceanPark.App">
-      <uap:VisualElements
-        DisplayName="VinhomesOceanPark"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="VinhomesOceanPark"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="VinhomesOceanPark.App">
+      <uap:VisualElements DisplayName="Vinhomes Ocean Park" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="VinhomesOceanPark" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
