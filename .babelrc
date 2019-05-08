@@ -18,7 +18,8 @@
           "@theme": "./theme",
           "@constants": "./src/constants",
           "@store": "./src/store",
-          "@styles": "./src/styles"
+          "@styles": "./src/styles", 
+          "@utils": "./src/utils"
         }
       }
     ]

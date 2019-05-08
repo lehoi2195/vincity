@@ -1,6 +1,6 @@
 export default {
     background: require('./background.png'),
-
+    placeholder: require('./placeholder.png'),
     //tabbar 
     project : require('./TabBar/project.png'), 
     projectActive : require('./TabBar/projectActive.png'), 
@@ -29,5 +29,8 @@ export default {
     call : require('./Contact/call.png'),
     email : require('./Contact/email.png'),
     facebook: require('./Contact/facebook.png'),
-    location : require('./Contact/location.png')
+    location : require('./Contact/location.png'),
+
+    //gallery 
+    iconPlay : require('./Gallery/iconPlay.png')
 }

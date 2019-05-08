@@ -8,7 +8,6 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, Image, Dimensions } from "react-native";
 import { View, Text } from "native-base";
 import AppStyles from "@styles";
-import images from "../../assets/images";
 import Header from "@components/Header";
 import SideBarItem from "@components/SideBarItem";
 const { width, height } = Dimensions.get("window");
@@ -18,22 +17,73 @@ const GALLERY_TAB = [
   { id: 2, text: "Tài liệu" }
 ];
 
-export default class Gallery extends Component {
+import images from "@assets/images";
+import variables from "@theme/variables";
+import {
+  actionLibrary,
+  getDocumentLibrary,
+  getProjectByCity,
+  openGallery
+} from "@store/actions";
+import { getToken, isRequestPending } from "@store/selectors";
+import configs from "@src/constants/configs";
+import PhotoLibrary from "./PhotoLibary";
+import VideoLibrary from "./VideoLibrary";
+import { connect } from "react-redux";
+class GalleryScreen extends Component {
   state = {
     index: 4
   };
   onPressItem = index => {
     this.setState({ index });
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    };
+    this.watcher = null;
+  }
+
+  getDocument = query => {
+    const { token, getDocumentLibrary } = this.props;
+    this.setState({ data: [] });
+    getDocumentLibrary(token, query, (error, data) => {
+      if (error) return;
+      console.log(data);
+      if (data && data.data) {
+        this.setState({ data: data.data });
+      }
+    });
+  };
+
+  componentDidMount() {
+    this.getDocument(`?project=${configs.projectId}`);
+  }
 
   render() {
+    const { data } = this.state;
+
     return (
       <View row style={styles.container}>
         <View style={AppStyles.content}>
           <Header />
+          {/* <PhotoLibrary
+            tabLabel="Hình ảnh"
+            loading={this.props.loading}
+            data={data.images || []}
+            allImages={data.listImages || []}
+            arrFolderImages={data.arrFolderImages || []}
+            navigation={this.props.navigation}
+          /> */}
+          <VideoLibrary
+            tabLabel="Video"
+            loading={this.props.loading}
+            data={data.video || {}}
+          />
         </View>
         <View
-          style={[AppStyles.sidebar, { paddingTop: 108, paddingRight: 42, backgroundColor:'blue' }]}
+          style={[AppStyles.sidebar, { paddingTop: 108, paddingRight: 42 }]}
         >
           {GALLERY_TAB.map((tab, index) => (
             <SideBarItem
@@ -49,12 +99,27 @@ export default class Gallery extends Component {
   }
 }
 
+export default connect(
+  state => ({
+    token: getToken(state),
+    loading: isRequestPending(state, "getDocumentLibrary")
+    // dropLibrary: state.app.dropLibrary,
+  }),
+  {
+    actionLibrary,
+    getDocumentLibrary,
+    getProjectByCity,
+    openGallery
+  }
+)(GalleryScreen);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F5FCFF"
+    // backgroundColor:'red',
   },
   welcome: {
     fontSize: 20,

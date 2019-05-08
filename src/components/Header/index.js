@@ -12,7 +12,7 @@ export default class Header extends Component {
   render() {
     const { theme } = this.props;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{}}>
         <View row style={{ justifyContent: "space-between" }}>
           <Text
             semibold
