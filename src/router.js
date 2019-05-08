@@ -104,7 +104,7 @@ const SwitchScreen = createSwitchNavigator(
     ContactStack: { screen: ContactStack }
   },
   {
-    initialRouteName: "ProjectStack",
+    initialRouteName: "GalleryStack",
     headerMode: "none",
     resetOnBlur: false,
     navigationOptions: {
@@ -115,7 +115,7 @@ const SwitchScreen = createSwitchNavigator(
 
 class Main extends Component {
   state = {
-    index: 0,
+    index: 3,
     explorer: false
   };
   renderTab = index => {
@@ -169,18 +169,5 @@ class Main extends Component {
   }
 }
 
-const AppContainer = createStackNavigator(
-  {
-    Main: { screen: Main },
-    HomeScreen: { screen: HomeScreen }
-  },
-  {
-    initialRouteName: "Main",
-    headerMode: "none",
-    navigationOptions: {
-      header: null
-    }
-  }
-);
 
 export default Main;

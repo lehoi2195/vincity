@@ -15,7 +15,8 @@ import {
 } from "react-native";
 import images from "../../assets/images";
 const { width, height } = Dimensions.get("window");
-export default class App extends Component {
+import { connect } from "react-redux";
+class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -24,6 +25,22 @@ export default class App extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    auth: state.auth,
+    // loading: isRequestPending(state, "login")
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    // login: (...args) => dispatch(login(...args))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {

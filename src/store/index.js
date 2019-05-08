@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'development') {
     // middleware.push(logger);
 }
 const enhancer = [applyMiddleware(...middleware)];
-window.devToolsExtension && enhancer.push(window.devToolsExtension());
+// window.devToolsExtension && enhancer.push(window.devToolsExtension());
 
 const migrations = {
     0: (state) => {
@@ -22,20 +22,20 @@ const migrations = {
             ...state,
             auth: {
                 ...state.auth,
-                isTourGuideHome: true,
-                isTourGuideProject: true
+                // isTourGuideHome: true,
+                // isTourGuideProject: true
             }
         }
     }
 }
 const persistConfig = {
     storage: AsyncStorage,
-    key: 'SNBApp',
+    key: 'OceanPark',
     blacklist: ['ui', 'requests', 'apartment', 'app'],
     // debounce: 500,
     // stateReconciler: hardSet,
     version: 0,
-    migrate: createMigrate(migrations, { debug: false })
+    // migrate: createMigrate(migrations, { debug: false })
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

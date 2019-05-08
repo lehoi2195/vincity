@@ -5,21 +5,45 @@
  */
 
 import React, { Component } from "react";
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions
-} from "react-native";
+import { Platform, StyleSheet, Image, Dimensions } from "react-native";
+import { View, Text } from "native-base";
+import AppStyles from "@styles";
 import images from "../../assets/images";
+import Header from "@components/Header";
+import SideBarItem from "@components/SideBarItem";
 const { width, height } = Dimensions.get("window");
+const GALLERY_TAB = [
+  { id: 0, text: "Hình ảnh" },
+  { id: 1, text: "Video" },
+  { id: 2, text: "Tài liệu" }
+];
+
 export default class Gallery extends Component {
+  state = {
+    index: 4
+  };
+  onPressItem = index => {
+    this.setState({ index });
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Image source={images.banner} />
+      <View row style={styles.container}>
+        <View style={AppStyles.content}>
+          <Header />
+        </View>
+        <View
+          style={[AppStyles.sidebar, { paddingTop: 108, paddingRight: 42, backgroundColor:'blue' }]}
+        >
+          {GALLERY_TAB.map((tab, index) => (
+            <SideBarItem
+              onPress={() => this.onPressItem(index)}
+              active={this.state.index === index}
+              text={tab.text}
+              key={tab.id.toString()}
+            />
+          ))}
+        </View>
       </View>
     );
   }

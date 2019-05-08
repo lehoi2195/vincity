@@ -12,12 +12,13 @@
       {
         "alias": {
           "@src": "./src",
-          "components": "./src/components",
-          "container": "./src/container",
-          "assets": "./src/assets",
-          "theme": "./theme",
-          "constants": "./src/constants",
-          "store": "./src/store",
+          "@components": "./src/components",
+          "@container": "./src/container",
+          "@assets": "./src/assets",
+          "@theme": "./theme",
+          "@constants": "./src/constants",
+          "@store": "./src/store",
+          "@styles": "./src/styles"
         }
       }
     ]
