@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Image, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, View, Container } from "native-base";
 import { NavigationEvents } from "react-navigation";
-
+import Header from '@components/Header';
 import variables from "@theme/variables";
 import images from "@assets/images";
+import AppStyles from "@styles";
+
 const width = variables.deviceWidth;
 
 export default class PhotoLibrary extends Component {
@@ -14,6 +16,7 @@ export default class PhotoLibrary extends Component {
 
   onPress = (title, data) => {
     // this.props.navigation.navigate('PhotographsDetail', { title, data })
+    this.props.onPressAlbum();
   };
 
   render() {
@@ -37,7 +40,8 @@ export default class PhotoLibrary extends Component {
       );
     }
     return (
-      <View style={styles.wrapper}>
+      <View style={[styles.wrapper, AppStyles.paddingContent]}>
+        <Header title={'Thư viện ảnh'} />
         <FlatList
           contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={4}

@@ -31,14 +31,13 @@ import PhotoLibrary from "./PhotoLibary";
 import VideoLibrary from "./VideoLibrary";
 import { connect } from "react-redux";
 import DocumentLibary from "./DocumentLibary";
+import PhotoViewer from "./PhotoViewer";
 class GalleryScreen extends Component {
- 
- 
   constructor(props) {
     super(props);
     this.state = {
-      data: [], 
-      index : 0
+      data: [],
+      index: 0
     };
     this.watcher = null;
   }
@@ -60,19 +59,30 @@ class GalleryScreen extends Component {
   componentDidMount() {
     this.getDocument(`?project=${configs.projectId}`);
   }
-  renderHeaderTitle = ()=>{
-    switch(this.state.index){
-      case 0 : return "Thư viện ảnh";
-      case 1 : return "Thư viện Video";
-      case 2 : return "Tài liệu";
+  renderHeaderTitle = () => {
+    switch (this.state.index) {
+      case 0:
+        return "Thư viện ảnh";
+      case 1:
+        return "Thư viện Video";
+      case 2:
+        return "Tài liệu";
     }
-  }
+  };
+
+  onPressAlbum = () => {
+    this.setState({
+      index: 3
+    });
+  };
+
   renderContent = () => {
     const { data } = this.state;
     switch (this.state.index) {
       case 0:
         return (
           <PhotoLibrary
+            onPressAlbum={this.onPressAlbum}
             tabLabel="Hình ảnh"
             loading={this.props.loading}
             data={data.images || []}
@@ -100,19 +110,17 @@ class GalleryScreen extends Component {
             loading={this.props.loading}
             data={data.documents || []}
             navigation={this.props.navigation}
-          
           />
         );
+      case 3:
+        return <PhotoViewer />;
     }
   };
 
   render() {
-   
-
     return (
       <View row style={styles.container}>
         <View style={AppStyles.content}>
-          <Header title={this.renderHeaderTitle()}/>
           {this.renderContent()}
         </View>
         <View

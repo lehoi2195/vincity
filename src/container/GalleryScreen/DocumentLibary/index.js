@@ -11,12 +11,14 @@ import { Text, View } from "native-base";
 import { connect } from "react-redux";
 import { withNavigation } from "react-navigation";
 import DeviceInfo from "react-native-device-info";
+import Header from "@components/Header";
 
 import images from "@assets/images";
 import variables from "@theme/variables";
 import { getToken } from "@store/selectors";
 import { searchDocument } from "@store/actions";
 import { convertToSearchName } from "@utils";
+import AppStyles from "@styles";
 
 const width = variables.deviceWidth;
 
@@ -51,7 +53,14 @@ class DocumentLibrary extends Component {
       <TouchableOpacity
         key={index}
         onPress={() => this.onPress(item.name, item)}
-        style={[styles.folder, { marginLeft: index%4===0?0:10, marginRight: 10, marginVertical: 10  }]}
+        style={[
+          styles.folder,
+          {
+            marginLeft: index % 4 === 0 ? 0 : 10,
+            marginRight: 10,
+            marginVertical: 10
+          }
+        ]}
       >
         <Image
           source={images.iconFolder}
@@ -67,32 +76,32 @@ class DocumentLibrary extends Component {
   };
 
   render() {
-    const { data} = this.state;
+    const { data } = this.state;
     const { loading } = this.props;
     if (loading) {
-        return (
-            <View center style={{ flex: 1 }}>
-              <Image source={images.logoTransparent} />
-              <Text
-                black
-                size14
-                style={{
-                  paddingVertical: 10,
-                  paddingHorizontal: 50,
-                  textAlign: "center"
-                }}
-              >
-                Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
-              </Text>
-            </View>
-          );
+      return (
+        <View center style={{ flex: 1 }}>
+          <Image source={images.logoTransparent} />
+          <Text
+            black
+            size14
+            style={{
+              paddingVertical: 10,
+              paddingHorizontal: 50,
+              textAlign: "center"
+            }}
+          >
+            Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
+          </Text>
+        </View>
+      );
     }
 
-
     return (
-      <View style={styles.wrapper}>
+      <View style={[styles.wrapper, AppStyles.paddingContent]}>
+        <Header title={"Tài liệu"} />
         <FlatList
-        contentContainerStyle={{paddingVertical: 40}}
+          contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={4}
           data={data}
           extraData={this.props}
@@ -114,14 +123,14 @@ export default connect(
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
+    flex: 1
   },
   folder: {
     alignItems: "center",
     justifyContent: "center",
     width: 275,
     height: 140,
-    backgroundColor: "#F2F2F2", 
+    backgroundColor: "#F2F2F2",
     borderRadius: 2
   },
   img: {

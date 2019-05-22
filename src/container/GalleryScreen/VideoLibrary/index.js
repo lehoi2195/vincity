@@ -11,6 +11,8 @@ import {
 import { Text, View } from "native-base";
 import { Thumbnail } from "react-native-thumbnail-video";
 import DeviceInfo from "react-native-device-info";
+import Header from "@components/Header";
+import AppStyles from "@styles";
 
 import images from "@assets/images";
 import { getIdYoutube } from "@utils";
@@ -39,7 +41,11 @@ export default class VideoLibrary extends Component {
         key={index}
         style={[
           styles.wrapper,
-          { marginLeft: index % 3 === 0 ? 0 : 30, marginRight: 30 , marginVertical: 10 }
+          {
+            marginLeft: index % 3 === 0 ? 0 : 30,
+            marginRight: 30,
+            marginVertical: 10
+          }
         ]}
       >
         <View
@@ -114,7 +120,8 @@ export default class VideoLibrary extends Component {
     }
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={[styles.wrapper, AppStyles.paddingContent]}>
+        <Header title={"Thư viện Video"} />
         <FlatList
           contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={3}
@@ -129,6 +136,7 @@ export default class VideoLibrary extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     //   backgroundColor:'red'
+    flex: 1
   },
   img: {
     alignItems: "center",

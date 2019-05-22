@@ -34,5 +34,7 @@ export default {
     //gallery 
     iconPlay : require('./Gallery/iconPlay.png'), 
     iconFolder : require('./Gallery/iconFolder.png'),
-    iconFile : require('./Gallery/iconFile.png')
+    iconFile : require('./Gallery/iconFile.png'), 
+    iconNext : require('./Gallery/iconNext.png'), 
+    iconBack: require('./Gallery/iconBack.png')
 }
