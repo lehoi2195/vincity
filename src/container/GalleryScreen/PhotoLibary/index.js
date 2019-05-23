@@ -63,7 +63,7 @@ export default class PhotoLibrary extends Component {
     console.log("Album data", data);
     return (
       <View style={[styles.wrapper, AppStyles.paddingContent]}>
-        <Header title={"Thư viện ảnh"} />
+       
         <FlatList
           contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={4}

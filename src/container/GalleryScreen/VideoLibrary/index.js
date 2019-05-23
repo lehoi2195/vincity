@@ -13,7 +13,7 @@ import { Thumbnail } from "react-native-thumbnail-video";
 import DeviceInfo from "react-native-device-info";
 import Header from "@components/Header";
 import AppStyles from "@styles";
-
+import VideoViewer from "../VideoViewer";
 import images from "@assets/images";
 import { getIdYoutube } from "@utils";
 import variables from "@theme/variables";
@@ -25,14 +25,24 @@ export default class VideoLibrary extends Component {
     super(props);
     this.state = {
       data: {},
-      containerWidth: 350
+      containerWidth: 350,
+      showVideoPlayer: false
     };
   }
 
   componentDidMount() {
     this.setState({ data: this.props.data });
   }
-
+  openVideoPlayer = () => {
+    this.setState({
+      showVideoPlayer: true
+    });
+  };
+  onBack = () => {
+    this.setState({
+      showVideoPlayer: false
+    });
+  };
   renderYoutube = ({ item, index }) => {
     const ratio = 16 / 9;
 
@@ -65,8 +75,10 @@ export default class VideoLibrary extends Component {
             imageWidth={348}
             imageHeight={196}
             url={item.link}
+            onPress={this.openVideoPlayer}
           >
             <TouchableOpacity
+              onPress={this.openVideoPlayer}
               style={{
                 justifyContent: "center",
                 alignItems: "center"
@@ -87,7 +99,11 @@ export default class VideoLibrary extends Component {
     );
   };
 
-  render() {
+  renderVideoPlayer() {
+    return <VideoViewer />;
+  }
+
+  renderVideoLibrary() {
     const { data } = this.props;
     const { loading } = this.props;
     if (loading) {
@@ -133,6 +149,11 @@ export default class VideoLibrary extends Component {
         />
       </View>
     );
+  }
+  render() {
+    return this.state.showVideoPlayer
+      ? this.renderVideoPlayer()
+      : this.renderVideoLibrary();
   }
 }
 const styles = StyleSheet.create({
