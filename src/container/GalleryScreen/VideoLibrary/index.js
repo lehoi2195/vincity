@@ -126,7 +126,9 @@ export default class VideoLibrary extends Component {
           contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={3}
           data={data.links}
-          keyExtractor={index => index.toString()}
+          keyExtractor={(item, index) =>
+            item.link ? item.link : index.toString()
+          }
           renderItem={this.renderYoutube}
         />
       </View>

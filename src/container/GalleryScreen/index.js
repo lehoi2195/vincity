@@ -31,7 +31,6 @@ import PhotoLibrary from "./PhotoLibary";
 import VideoLibrary from "./VideoLibrary";
 import { connect } from "react-redux";
 import DocumentLibary from "./DocumentLibary";
-import PhotoViewer from "./PhotoViewer";
 class GalleryScreen extends Component {
   constructor(props) {
     super(props);
@@ -70,11 +69,6 @@ class GalleryScreen extends Component {
     }
   };
 
-  onPressAlbum = () => {
-    this.setState({
-      index: 3
-    });
-  };
 
   renderContent = () => {
     const { data } = this.state;
@@ -82,7 +76,6 @@ class GalleryScreen extends Component {
       case 0:
         return (
           <PhotoLibrary
-            onPressAlbum={this.onPressAlbum}
             tabLabel="Hình ảnh"
             loading={this.props.loading}
             data={data.images || []}
@@ -112,8 +105,7 @@ class GalleryScreen extends Component {
             navigation={this.props.navigation}
           />
         );
-      case 3:
-        return <PhotoViewer />;
+     
     }
   };
 

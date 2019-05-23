@@ -2,24 +2,45 @@ import React, { Component } from "react";
 import { Image, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { Text, View, Container } from "native-base";
 import { NavigationEvents } from "react-navigation";
-import Header from '@components/Header';
+import Header from "@components/Header";
 import variables from "@theme/variables";
 import images from "@assets/images";
 import AppStyles from "@styles";
+import PhotoViewer from "../PhotoViewer";
 
 const width = variables.deviceWidth;
 
 export default class PhotoLibrary extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showPhotoViewer: false,
+      albumSelected: [],
+      albumIndex: 0
+    };
+  }
+  onBack = () => {
+    this.setState({ showPhotoViewer: false, albumSelected: [], albumIndex: 0 });
+  };
+  onPress = (item, index) => {
+    // this.props.navigation.navigate('PhotographsDetail', { title, data })
+    this.setState({
+      showPhotoViewer: true,
+      albumSelected: item,
+      albumIndex: index
+    });
+  };
+  renderPhotoViewer() {
+    return (
+      <PhotoViewer
+        onBack={this.onBack}
+        album={this.state.albumSelected}
+        index={this.state.albumIndex}
+      />
+    );
   }
 
-  onPress = (title, data) => {
-    // this.props.navigation.navigate('PhotographsDetail', { title, data })
-    this.props.onPressAlbum();
-  };
-
-  render() {
+  renderAlbumList() {
     const { data } = this.props;
     if (data.length === 0) {
       return (
@@ -39,9 +60,10 @@ export default class PhotoLibrary extends Component {
         </View>
       );
     }
+    console.log("Album data", data);
     return (
       <View style={[styles.wrapper, AppStyles.paddingContent]}>
-        <Header title={'Thư viện ảnh'} />
+        <Header title={"Thư viện ảnh"} />
         <FlatList
           contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={4}
@@ -50,10 +72,14 @@ export default class PhotoLibrary extends Component {
           renderItem={({ item, index }) => {
             return (
               <TouchableOpacity
-                onPress={() => this.onPress(item.name, item)}
+                onPress={() => this.onPress(item, index)}
                 style={[
                   styles.folder,
-                  { marginLeft: index % 4 === 0 ? 0 : 25, marginRight: 25, marginVertical: 10 }
+                  {
+                    marginLeft: index % 4 === 0 ? 0 : 25,
+                    marginRight: 25,
+                    marginVertical: 10
+                  }
                 ]}
               >
                 <View>
@@ -111,6 +137,12 @@ export default class PhotoLibrary extends Component {
         />
       </View>
     );
+  }
+
+  render() {
+    return this.state.showPhotoViewer
+      ? this.renderPhotoViewer()
+      : this.renderAlbumList();
   }
 }
 const styles = StyleSheet.create({

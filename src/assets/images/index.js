@@ -36,5 +36,10 @@ export default {
     iconFolder : require('./Gallery/iconFolder.png'),
     iconFile : require('./Gallery/iconFile.png'), 
     iconNext : require('./Gallery/iconNext.png'), 
-    iconBack: require('./Gallery/iconBack.png')
+    iconBack: require('./Gallery/iconBack.png'),
+
+    //back
+    btnBackWhite : require('./btnBackWhite.png'), 
+    btnBackBlack: require('./btnBackBlack.png'), 
+    btnBackGreen: require('./btnBackGreen.png')
 }
