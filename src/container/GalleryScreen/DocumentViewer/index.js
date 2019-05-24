@@ -26,9 +26,9 @@ export default class PhotoViewer extends Component {
     this.props.onBack();
   };
   render() {
-    const { video, index } = this.props;
+    const { document, index } = this.props;
 
-    if (!video.link) {
+    if (!document.link) {
       return (
         <View style={[styles.wrapper, AppStyles.paddingContent]}>
           <Header theme="dark" title={""} showBack onBack={this.onBack} />
@@ -54,10 +54,8 @@ export default class PhotoViewer extends Component {
       <View style={styles.wrapper}>
         <View style={AppStyles.paddingContent}>
           <Header
-            theme="light"
-            title={video.name}
+            title={document.name}
             showBack
-            hideLine
             onBack={this.onBack}
           />
         </View>
@@ -65,8 +63,7 @@ export default class PhotoViewer extends Component {
           style={{ flex: 1, marginBottom: 150 }}
           javaScriptEnabled={true}
           source={{
-            uri:
-              `https://www.youtube.com/embed/${getIdYoutube(video.link)}?rel=0&autoplay=0&showinfo=0`
+            uri: document.link
           }}
         />
       </View>
@@ -76,6 +73,5 @@ export default class PhotoViewer extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: "#151515"
   }
 });

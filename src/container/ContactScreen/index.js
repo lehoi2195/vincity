@@ -41,23 +41,23 @@ export default class ContactScreen extends Component {
           <View style={styles.row2}>
             <ContactItem
               source={images.address}
-              content={"Website:       www.vinhomeoceanpark.com"}
+              content={`Website:       www.oceanpark.vinhomes.vn`}
             />
             <ContactItem
               source={images.email}
-              content={"Email:         contact@oceanpark.vinhomes.vn"}
+              content={`Email:         contact@oceanpark.vinhomes.vn`}
             />
             <ContactItem
               source={images.call}
-              content={"Hotline:       0933 886 556"}
+              content={`Hotline:       088 804 9669`}
             />
             <ContactItem
               source={images.facebook}
-              content={"Fanpage:        www.facebook.com/oceanpark"}
+              content={`Fanpage:       www.facebook.com/vh.oceanpark`}
             />
             <ContactItem
               source={images.location}
-              content={"Địa chỉ:        Long Biên, Gia Lâm, Hà Nội"}
+              content={`Địa chỉ:       Gia Lâm, Hà Nội`}
             />
           </View>
         </View>

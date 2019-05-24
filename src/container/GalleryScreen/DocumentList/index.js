@@ -19,50 +19,34 @@ import { getToken } from "@store/selectors";
 import { searchDocument } from "@store/actions";
 import { convertToSearchName } from "@utils";
 import AppStyles from "@styles";
-import DocumentList from "../DocumentList";
+import DoucmentViewer from "../DocumentViewer";
 const width = variables.deviceWidth;
 
 class DocumentLibrary extends Component {
-  static defaultProps = {
-    isSearch: false
-  };
-
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      files: {},
-      title: "",
-      showDocumentList: false,
-      folderSelected: {},
-      folderIndex: 0
+      showDocumentDetail: false,
+      documentSelected: {},
+      documentIndex: 0
     };
-  }
-
-  componentDidMount() {
-    this.setState({ data: this.props.data, defaultData: this.props.data });
-  }
-
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (nextProps.data !== this.state.data) {
-      this.setState({ data: nextProps.data, defaultData: nextProps.data });
-    }
   }
 
   onPress = (item, index) => {
     this.setState({
-      showDocumentList: true,
-      folderSelected: item,
-      folderIndex: index
+      showDocumentDetail: true,
+      documentSelected: item,
+      documentIndex: index
     });
   };
-  onBack = () =>{
+  onBack = () => {
     this.setState({
-      showDocumentList: false,
-      folderSelected: {},
-      folderIndex: 0
+      showDocumentDetail: false,
+      documentSelected: {},
+      documentIndex: 0
     });
-  }
+  };
+
   renderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
@@ -78,7 +62,7 @@ class DocumentLibrary extends Component {
         ]}
       >
         <Image
-          source={images.iconFolder}
+          source={images.iconFile}
           style={styles.img}
           resizeMode="contain"
         />
@@ -89,47 +73,56 @@ class DocumentLibrary extends Component {
       </TouchableOpacity>
     );
   };
-
-  renderDocumentList() {
+  renderDocumentViewer() {
     return (
-      <DocumentList
-        folder={this.state.folderSelected}
-        index={this.state.folderIndex}
+      <DoucmentViewer
+        document={this.state.documentSelected}
+        index={this.state.documentIndex}
         onBack={this.onBack}
       />
     );
   }
-
-  renderFolders() {
-    const { data } = this.state;
-    console.log("file data", data);
-    const { loading } = this.props;
-    if (loading) {
+  renderList() {
+    const { folder, index } = this.props;
+    if (!folder) {
       return (
-        <View center style={{ flex: 1 }}>
-          <Image source={images.logoTransparent} />
-          <Text
-            black
-            size14
-            style={{
-              paddingVertical: 10,
-              paddingHorizontal: 50,
-              textAlign: "center"
-            }}
-          >
-            Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
-          </Text>
+        <View style={[styles.wrapper, AppStyles.paddingContent]}>
+          <Header
+            theme="dark"
+            title={folder.name}
+            showBack
+            onBack={() => this.props.onBack()}
+          />
+          <View center style={{ flex: 1 }}>
+            <Image source={images.logoTransparent} />
+            <Text
+              black
+              size14
+              style={{
+                paddingVertical: 10,
+                paddingHorizontal: 50,
+                textAlign: "center"
+              }}
+            >
+              Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
+            </Text>
+          </View>
         </View>
       );
     }
 
     return (
       <View style={[styles.wrapper, AppStyles.paddingContent]}>
-        <Header title={"Tài liệu"} />
+        <Header
+          theme="dark"
+          title={folder.name}
+          showBack
+          onBack={() => this.props.onBack()}
+        />
         <FlatList
           contentContainerStyle={{ paddingVertical: 40 }}
           numColumns={4}
-          data={data}
+          data={folder.links}
           extraData={this.props}
           keyExtractor={index => index.toString()}
           renderItem={this.renderItem}
@@ -137,11 +130,10 @@ class DocumentLibrary extends Component {
       </View>
     );
   }
-
   render() {
-    return this.state.showDocumentList
-      ? this.renderDocumentList()
-      : this.renderFolders();
+    return this.state.showDocumentDetail
+      ? this.renderDocumentViewer()
+      : this.renderList();
   }
 }
 export default connect(

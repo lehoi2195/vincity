@@ -7,7 +7,7 @@ import variables from "./theme/variables";
 import AppContainer from "./src";
 import store from "./src/store";
 
-// console.disableYellowBox = true;
+console.disableYellowBox = true;
 
 export default class App extends Component {
   componentDidMount() {}
