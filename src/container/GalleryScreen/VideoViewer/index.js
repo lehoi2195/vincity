@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  ImageBackground, 
+  ImageBackground,
   WebView
 } from "react-native";
 import { Text, View, Container } from "native-base";
@@ -21,9 +21,11 @@ export default class PhotoViewer extends Component {
       imageIndex: 0
     };
   }
-
+  onBack = ()=>{
+      this.props.onBack()
+  }
   render() {
-    const { album =[{}], index } = this.props;
+    const { album = [{}], index } = this.props;
     const { imageIndex } = this.state;
 
     if (album.length === 0) {
@@ -31,7 +33,7 @@ export default class PhotoViewer extends Component {
         <View style={[styles.wrapper, AppStyles.paddingContent]}>
           <Header
             theme="dark"
-            title={album.name}
+            title={''}
             showBack
             onBack={this.onBack}
           />
@@ -55,9 +57,17 @@ export default class PhotoViewer extends Component {
 
     return (
       <View style={styles.wrapper}>
-        <Header title={"Thư viện ảnh"} />
+        <View style={AppStyles.paddingContent}>
+          <Header
+            theme="light"
+            title={'Video Player'}
+            showBack
+            hideLine
+            onBack={this.onBack}
+          />
+        </View>
         <WebView
-          style={{ flex: 1 }}
+          style={{ flex: 1, marginBottom: 150 }}
           javaScriptEnabled={true}
           source={{
             uri:
@@ -70,6 +80,7 @@ export default class PhotoViewer extends Component {
 }
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#151515"
   }
 });

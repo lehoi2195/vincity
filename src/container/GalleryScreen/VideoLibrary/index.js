@@ -26,16 +26,20 @@ export default class VideoLibrary extends Component {
     this.state = {
       data: {},
       containerWidth: 350,
-      showVideoPlayer: false
+      showVideoPlayer: false,
+      videoSelected: {},
+      videoIndex: 0
     };
   }
 
   componentDidMount() {
     this.setState({ data: this.props.data });
   }
-  openVideoPlayer = () => {
+  openVideoPlayer = (item, index) => {
     this.setState({
-      showVideoPlayer: true
+      showVideoPlayer: true,
+      videoSelected: item,
+      videoIndex: index
     });
   };
   onBack = () => {
@@ -75,10 +79,10 @@ export default class VideoLibrary extends Component {
             imageWidth={348}
             imageHeight={196}
             url={item.link}
-            onPress={this.openVideoPlayer}
+            onPress={() => this.openVideoPlayer(item, index)}
           >
             <TouchableOpacity
-              onPress={this.openVideoPlayer}
+              onPress={() => this.openVideoPlayer(item, index)}
               style={{
                 justifyContent: "center",
                 alignItems: "center"
@@ -100,12 +104,14 @@ export default class VideoLibrary extends Component {
   };
 
   renderVideoPlayer() {
-    return <VideoViewer />;
+    return <VideoViewer index={this.state.videoIndex} video={this.state.videoSelected} onBack={this.onBack}/>;
   }
 
   renderVideoLibrary() {
     const { data } = this.props;
     const { loading } = this.props;
+    console.log("datavideo", data);
+
     if (loading) {
       return (
         <View center style={{ flex: 1 }}>

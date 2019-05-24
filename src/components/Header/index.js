@@ -7,7 +7,8 @@ export default class Header extends Component {
   static defaultProps = {
     title: "",
     theme: "dark",
-    showBack: false
+    showBack: false,
+    hideLine: false
   };
   state = {};
   render() {
@@ -41,7 +42,11 @@ export default class Header extends Component {
         <View
           style={{
             height: 1,
-            backgroundColor: theme === "dark" ? "#CACACA" : "white",
+            backgroundColor: this.props.hideLine
+              ? "transparent"
+              : theme === "dark"
+              ? "#CACACA"
+              : "white",
             marginTop: 32,
             marginRight: 56
           }}
