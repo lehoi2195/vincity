@@ -5,11 +5,11 @@ const { width, height } = Dimensions.get("window");
 
 export default class ZoomLayout extends Component {
   state = {
-    zoomScale: this.props.zoomScale || 0.2
+    zoomScale: this.props.zoomScale || 2
   };
   static defaultProps = {
     minZoom: 1,
-    maxZoom: DeviceInfo.isTablet() ? 5 : 3,
+    maxZoom: 3,
     width,
     height
   };
@@ -29,17 +29,7 @@ export default class ZoomLayout extends Component {
   };
 
   render() {
-    const {
-      minZoom,
-      maxZoom,
-      children,
-      style,
-      ratio,
-      imageWidth,
-      imageHeight,
-      cropWidth,
-      cropHeight
-    } = this.props;
+    const { minZoom, maxZoom, children, style, ratio } = this.props;
     const { zoomScale } = this.state;
     return (
       <ScrollView
@@ -52,6 +42,7 @@ export default class ZoomLayout extends Component {
         minimumZoomScale={minZoom}
         zoomScale={zoomScale}
         bounces={false}
+        zoomEnabled
       >
         {children}
       </ScrollView>

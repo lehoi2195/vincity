@@ -24,7 +24,7 @@ const regionWidth = width;
 const regionHeight = height;
 
 const ratio = 1;
-const minZoom = width / regionWidth;
+const minZoom = 1;
 const maxZoom = 2.5;
 
 class HomeScreen extends Component {
@@ -61,20 +61,13 @@ class HomeScreen extends Component {
                 style={[styles.zoomLayout, { flexWrap: "nowrap" }]}
                 minZoom={minZoom}
                 maxZoom={maxZoom}
-                cropWidth={width}
-                cropHeight={height}
-                imageWidth={regionWidth}
-                imageHeight={regionHeight}
-                imgRootHeight={regionHeight}
                 ratio={1}
               >
                 <ImageBackground
                   resizeMode={"contain"}
                   style={styles.imageMap}
                   source={data.regionMap}
-                >
-                  
-                </ImageBackground>
+                />
                 <TouchableOpacity
                   style={[
                     styles.btnDetail,
