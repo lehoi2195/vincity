@@ -136,7 +136,6 @@ export const createRequestSaga = ({
             response.data.code < 300) ||
           (otherApi && response.ok)
         ) {
-          console.log("DATA", response.data);
           return response.data;
         }
         return rejectErrors(response);

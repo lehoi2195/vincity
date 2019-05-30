@@ -18,7 +18,15 @@ import { Text, View } from "native-base";
 import images from "../../assets/images";
 const { width, height } = Dimensions.get("window");
 import DeviceInfo from "react-native-device-info";
-import { login } from "../../store/actions";
+import {
+  login,
+  saveBuildingType,
+  saveDataGetAllProject,
+  getApartmentsType,
+  getBuildingType,
+  getAllProjects
+} from "../../store/actions";
+
 import { isRequestPending } from "../../store/selectors/common";
 import { connect } from "react-redux";
 class SplashScreen extends Component {
@@ -40,7 +48,24 @@ class SplashScreen extends Component {
       );
       return;
     }
+
+    // console.log("login data", data, error);
+    const { getAllProjects, getBuildingType, getApartmentsType } = this.props;
+
+    getAllProjects(data.data.token, (error, data) => {
+      if (error) return;
+      if (data && data.data) {
+        console.log("project data", data);
+        this.props.saveDataGetAllProject(data);
+      }
+    });
+
+    // get data building_TYPE
+    getBuildingType(data.data.token);
+    // get data apartment_TYPE
+    getApartmentsType(data.data.token);
   };
+
   goLogin = async () => {
     const { isTutorial } = this.props;
     this.props.login(
@@ -95,12 +120,17 @@ class SplashScreen extends Component {
 }
 const mapStateToProps = state => {
   return {
-    auth: state.auth,
+    auth: state.auth
   };
 };
 
 const mapDispatchToProps = {
-  login
+  login,
+  saveBuildingType,
+  getApartmentsType,
+  getBuildingType,
+  getAllProjects,
+  saveDataGetAllProject
 };
 
 export default connect(
