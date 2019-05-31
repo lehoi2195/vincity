@@ -48,6 +48,11 @@ class HomeScreen extends Component {
     }
   }
 
+  onSubdivision = () => {
+    const { data } = this.state;
+    this.props.navigation.navigate("MapScreen", { data });
+  };
+
   render() {
     const { data, backgroundColor, srcHighLight } = this.state;
     console.log("hight light", data);
@@ -55,7 +60,7 @@ class HomeScreen extends Component {
       return (
         <View center style={{ flex: 1 }}>
           <View row style={styles.wrapper}>
-            <View style={[styles.ground, { backgroundColor }]}>
+            <View style={[styles.ground, { backgroundColor: "#FFFCF5" }]}>
               <ZoomLayout
                 ref={ref => (this.zoomLayout = ref)}
                 style={[styles.zoomLayout, { flexWrap: "nowrap" }]}
@@ -67,25 +72,26 @@ class HomeScreen extends Component {
                   resizeMode={"contain"}
                   style={styles.imageMap}
                   source={data.regionMap}
-                />
-                <TouchableOpacity
-                  style={[
-                    styles.btnDetail,
-                    {
-                      width: data.btnHighlight.width,
-                      height: data.btnHighlight.height,
-                      position: "absolute",
-                      top: data.btnHighlight.top,
-                      left: data.btnHighlight.left,
-                      zIndex: 999999
-                    }
-                  ]}
-                  onPress={this.onSubdivision}
                 >
-                  <Text black bold style={{ fontSize: 20 }}>
-                    {data.name}
-                  </Text>
-                </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      styles.btnDetail,
+                      {
+                        width: data.btnHighlight.width,
+                        height: data.btnHighlight.height,
+                        position: "absolute",
+                        top: data.btnHighlight.top,
+                        left: data.btnHighlight.left,
+                        zIndex: 999999
+                      }
+                    ]}
+                    onPress={this.onSubdivision}
+                  >
+                    <Text black bold style={{ fontSize: 20 }}>
+                      {data.name}
+                    </Text>
+                  </TouchableOpacity>
+                </ImageBackground>
               </ZoomLayout>
             </View>
           </View>

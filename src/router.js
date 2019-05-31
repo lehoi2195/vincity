@@ -10,15 +10,17 @@ import SplashScreen from "./container/SplashScreen";
 import HomeScreen from "./container/HomeScreen";
 import TabBarRight from "./components/TabbarRight";
 
-import ApartmentScreen from './container/ApartmentScreen';
-import VoucherScreen from './container/VoucherScreen';
-import GalleryScreen from './container/GalleryScreen';
-import SupportScreen from './container/SupportScreen';
-import ContactScreen from './container/ContactScreen';
+import ApartmentScreen from "./container/ApartmentScreen";
+import VoucherScreen from "./container/VoucherScreen";
+import GalleryScreen from "./container/GalleryScreen";
+import SupportScreen from "./container/SupportScreen";
+import ContactScreen from "./container/ContactScreen";
+import MapScreen from "./container/MapScreen";
 
 const ProjectStack = createStackNavigator(
   {
-    HomeScreen: { screen: HomeScreen }
+    HomeScreen: { screen: HomeScreen },
+    MapScreen: { screen: MapScreen }
   },
   {
     initialRouteName: "HomeScreen",
@@ -31,7 +33,7 @@ const ProjectStack = createStackNavigator(
 
 const ApartmentStack = createStackNavigator(
   {
-    ApartmentScreen: { screen: ApartmentScreen },
+    ApartmentScreen: { screen: ApartmentScreen }
   },
   {
     initialRouteName: "ApartmentScreen",
@@ -44,7 +46,7 @@ const ApartmentStack = createStackNavigator(
 
 const VoucherStack = createStackNavigator(
   {
-    VoucherScreen: { screen: VoucherScreen },
+    VoucherScreen: { screen: VoucherScreen }
   },
   {
     initialRouteName: "VoucherScreen",
@@ -104,7 +106,7 @@ const SwitchScreen = createSwitchNavigator(
     ContactStack: { screen: ContactStack }
   },
   {
-    initialRouteName: "GalleryStack",
+    initialRouteName: "ProjectStack",
     headerMode: "none",
     resetOnBlur: false,
     navigationOptions: {
@@ -115,7 +117,7 @@ const SwitchScreen = createSwitchNavigator(
 
 class Main extends Component {
   state = {
-    index: 3,
+    index: 0,
     explorer: false
   };
   renderTab = index => {
@@ -168,6 +170,5 @@ class Main extends Component {
     );
   }
 }
-
 
 export default Main;

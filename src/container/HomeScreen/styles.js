@@ -3,7 +3,7 @@ import { Platform, Dimensions } from "react-native";
 import variables from "@theme/variables";
 const { width, height } = Dimensions.get("window");
 const ratio = 1;
-const imgWidth = width;
+const imgWidth = width - 84 ;
 const imgHeight = height;
 // const imgWidth = 838;
 // const imgHeight = 1167.62;
@@ -25,13 +25,13 @@ export default {
   },
 
   ground: {
-    width,
+    width: imgWidth ,
     height
   },
 
   zoomLayout: {
-    width,
-    height
+    width: imgWidth,
+    height: imgHeight
   },
 
   imageMap: {
