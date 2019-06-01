@@ -69,7 +69,6 @@ class GalleryScreen extends Component {
     }
   };
 
-
   renderContent = () => {
     const { data } = this.state;
     switch (this.state.index) {
@@ -105,16 +104,13 @@ class GalleryScreen extends Component {
             navigation={this.props.navigation}
           />
         );
-     
     }
   };
 
   render() {
     return (
       <View row style={styles.container}>
-        <View style={AppStyles.content}>
-          {this.renderContent()}
-        </View>
+        <View style={AppStyles.content}>{this.renderContent()}</View>
         <View
           style={[AppStyles.sidebar, { paddingTop: 108, paddingRight: 42 }]}
         >

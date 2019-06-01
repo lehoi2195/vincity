@@ -1,0 +1,62 @@
+import React, { Component } from "react";
+import { Image, StyleSheet } from "react-native";
+import { Text, View } from "native-base";
+
+import images from "../../../assets/images";
+
+export default class ApartmentDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  convertTools = apartment => {
+    return [
+      { name: `2 phòng ngủ`, icon: images.phongNgu },
+      { name: `1 phòng tắm`, icon: images.phongTam },
+      { name: `1 phòng bếp`, icon: images.phongBep },
+      { name: "Ban công", icon: images.banCong }
+    ];
+  };
+  render() {
+    const { apartment } = this.props;
+    const tools = this.convertTools(apartment);
+    return (
+      <View row style={styles.tools}>
+        {tools.map((item, index) => (
+          <View
+            key={index}
+            style={[styles.itemTools, { marginLeft: index !== 0 ? 5 : 0 }]}
+          >
+            <Image
+              source={item.icon}
+              style={{
+                width: 33,
+                height: 27
+              }}
+            />
+            <Text size12 normal grey2 style={{ textAlign: "center" }}>
+              {item.name}
+            </Text>
+          </View>
+        ))}
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  tools: {
+    marginTop : 40,
+   justifyContent :'space-between',
+    width: "100%",
+    height: 60,
+    
+  },
+  itemTools: {
+    width: 76,
+    height: "100%",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    
+  }
+});
