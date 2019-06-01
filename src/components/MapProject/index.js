@@ -1,35 +1,26 @@
-import React, { Component } from 'react'
-import { ImageBackground, Platform } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
-import { Text, View } from 'native-base';
+import React, { Component } from "react";
+import { ImageBackground, Platform } from "react-native";
+import DeviceInfo from "react-native-device-info";
+import { Text, View } from "native-base";
 
-import ZoomLayout from '@components/ZoomLayout';
+import ZoomLayout from "@components/ZoomLayout";
 
-import styles from './styles';
-import images from '@assets/images';
-import variables from '@theme/variables';
+import styles from "./styles";
+import variables from "@theme/variables";
 
 const width = variables.deviceWidth;
 const height = variables.deviceHeight;
 
-const rootHeight = 1553;
-const rootWidth = 2213;
-
-const ratio = 1.7;
-
-const minZoom = Platform.OS === 'ios' ? width / rootHeight : width / (rootHeight / ratio);
-const maxZoom = DeviceInfo.isTablet() ? 5 : Platform.OS === 'ios' ? 2 : 3;
+const minZoom = 1;
+const maxZoom = 5;
 
 export default class MapProject extends Component {
-
   static defaultProps = {
-    resizeMode: 'cover',
-  }
+    resizeMode: "cover"
+  };
   constructor(props) {
     super(props);
-    this.state = {
-    }
-
+    this.state = {};
     this.scale = null;
   }
 
@@ -39,42 +30,36 @@ export default class MapProject extends Component {
   }
 
   onScroll = (x, y, scale) => {
-    this.zoomLayout.scrollTo(x, y, scale, true)
-  }
+    this.zoomLayout.scrollTo(x, y, scale, true);
+  };
 
   componentDidMount() {
-    if (Platform.OS === 'ios') {
-      this.scale = setTimeout(() => {
-        this.zoomLayout.setZoomScale()
-      }, 10);
-    } else {
-      this.zoomLayout.setZoomScale()
-    }
+    this.scale = setTimeout(() => {
+      this.zoomLayout.setZoomScale();
+    }, 10);
   }
 
   componentWillUnmount() {
-    if (this.scale) clearTimeout(this.scale)
+    if (this.scale) clearTimeout(this.scale);
   }
-
-  _measureContent = event => {
-    const { width, height } = event.nativeEvent.layout;
-    console.log("width: ", width, height)
-
-  };
 
   render() {
     const { onView360, source, title, children, onPress } = this.props;
     return (
-      <View style={styles.wrapper}>
+      <View>
         <ZoomLayout
-          ref={ref => this.zoomLayout = ref}
+          ref={ref => (this.zoomLayout = ref)}
           style={styles.zoomLayout}
           minZoom={minZoom}
           maxZoom={maxZoom}
-          ratio={ratio}
-          onLayout={this._measureContent}
+          zoomScale={3}
+          imgRootHeight={width}
         >
-          <ImageBackground style={styles.imageMap} source={source}>
+          <ImageBackground
+            resizeMode="contain"
+            style={styles.imageMap}
+            source={source}
+          >
             {children}
           </ImageBackground>
         </ZoomLayout>
@@ -82,7 +67,7 @@ export default class MapProject extends Component {
         {/* <TouchableOpacity style={styles.btnView360} onPress={onView360}>
           <Image source={images.i360} style={styles.img360} />
         </TouchableOpacity> */}
-      </View >
+      </View>
     );
   }
 }

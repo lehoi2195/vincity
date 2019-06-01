@@ -2,14 +2,8 @@ import DeviceInfo from "react-native-device-info";
 import { Platform, Dimensions } from "react-native";
 import variables from "@theme/variables";
 const { width, height } = Dimensions.get("window");
-const ratio = 1;
-const imgWidth = width - 84 ;
+const imgWidth = width - 84;
 const imgHeight = height;
-// const imgWidth = 838;
-// const imgHeight = 1167.62;
-
-const regionHeight = imgWidth;
-const regionWidth = imgHeight;
 
 export default {
   container: {
@@ -25,7 +19,7 @@ export default {
   },
 
   ground: {
-    width: imgWidth ,
+    width: imgWidth,
     height
   },
 

@@ -51,7 +51,7 @@ class MapScreen extends Component {
       imgHighLight: [],
       x: 0,
       y: 0,
-      scale: 1,
+      scale: 3,
       hidden: true,
       //
       buildingType: [],
@@ -151,8 +151,6 @@ class MapScreen extends Component {
   onBack = () => {
     this.props.navigation.goBack();
   };
-
- 
 
   regionSize = size => {
     if (Platform.OS === "ios") return size;
@@ -260,7 +258,6 @@ class MapScreen extends Component {
               </View>
             ) : null}
           </MapProject>
-        
         </View>
       </Container>
     );
@@ -268,7 +265,7 @@ class MapScreen extends Component {
 }
 export default connect(
   state => ({
-    token: getToken(state),
+    token: getToken(state)
   }),
   {
     appRotate,

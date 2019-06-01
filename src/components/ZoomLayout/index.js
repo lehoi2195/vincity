@@ -9,7 +9,7 @@ export default class ZoomLayout extends Component {
   };
   static defaultProps = {
     minZoom: 1,
-    maxZoom: 3,
+    maxZoom: 5,
     width,
     height
   };
@@ -19,7 +19,7 @@ export default class ZoomLayout extends Component {
   };
 
   setZoomScale = () => {
-    const { ratio, imgRootHeight } = this.props;
+    const { imgRootHeight } = this.props;
     this.setState({ zoomScale: width / imgRootHeight });
   };
 
@@ -29,7 +29,7 @@ export default class ZoomLayout extends Component {
   };
 
   render() {
-    const { minZoom, maxZoom, children, style, ratio } = this.props;
+    const { minZoom, maxZoom, children, style } = this.props;
     const { zoomScale } = this.state;
     return (
       <ScrollView
