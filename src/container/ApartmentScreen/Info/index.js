@@ -3,6 +3,7 @@ import { Image, StyleSheet } from "react-native";
 import { Text, View } from "native-base";
 
 import images from "../../../assets/images";
+// import console = require("console");
 
 export default class ApartmentDetail extends Component {
   constructor(props) {
@@ -11,15 +12,15 @@ export default class ApartmentDetail extends Component {
   }
   convertTools = apartment => {
     return [
-      { name: `2 phòng ngủ`, icon: images.phongNgu },
-      { name: `1 phòng tắm`, icon: images.phongTam },
-      { name: `1 phòng bếp`, icon: images.phongBep },
+      { name: `${apartment.badRoom} phòng ngủ`, icon: images.phongNgu },
+      { name: `${apartment.bathRoom} phòng tắm`, icon: images.phongTam },
+      { name: `${apartment.kitchenRoom} phòng bếp`, icon: images.phongBep },
       { name: "Ban công", icon: images.banCong }
     ];
   };
   render() {
     const { apartment } = this.props;
-    const tools = this.convertTools(apartment);
+    const tools = this.convertTools(apartment.types[0]);
     return (
       <View row style={styles.tools}>
         {tools.map((item, index) => (

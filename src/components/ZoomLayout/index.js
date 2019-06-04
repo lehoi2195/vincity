@@ -45,6 +45,7 @@ export default class ZoomLayout extends Component {
         zoomEnabled
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
+        horizontal
       >
         {children}
       </ScrollView>

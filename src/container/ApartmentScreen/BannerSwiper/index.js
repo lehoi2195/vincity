@@ -9,12 +9,10 @@ import {
 // import DeviceInfo from "react-native-device-info";
 import { View } from "native-base";
 // import { connect } from "react-redux";
-import Swiper from "react-native-swiper";
+import Swiper from "@components/Swiper";
 import images from "../../../assets/images";
 
 export default class HeaderSwiper extends Component {
- 
-
   componentDidMount() {}
 
   // swiperIndexChanged = index => {
@@ -45,11 +43,11 @@ export default class HeaderSwiper extends Component {
     //   ? [...[apartment.image], ...apartment.imagesFurniture]
     //   : [...randomImgGround, ...apartment.imagesFurniture];
     const demo = [
-      { son: images.tutorial2 },
-      { son: images.tutorial1 },
-      { son: images.tutorial1 },
-      { son: images.tutorial1 },
-      { son: images.tutorial2 }
+      { son: images.demoImage },
+      { son: images.demoImage },
+      { son: images.demoImage },
+      { son: images.demoImage },
+      { son: images.demoImage }
     ];
 
     return (
@@ -58,7 +56,7 @@ export default class HeaderSwiper extends Component {
         source={images.linearSwiper}
       >
         <Swiper
-        // showsButtons ={true}
+          showsButtons={true}
           ref={swiper => {
             this.swiper = swiper;
           }}
@@ -73,16 +71,15 @@ export default class HeaderSwiper extends Component {
           // onIndexChanged={this.swiperIndexChanged}
         >
           {demo.map((item, index) => (
-            <View key = {index}>
+            <View key={index}>
               <Image
                 defaultSource={images.placeholder}
                 resizeMode="stretch"
                 source={item.son}
-                
                 // source={images.tutorial1}
                 style={[styles.imageSlide]}
               />
-           </View>
+            </View>
           ))}
         </Swiper>
       </ImageBackground>
@@ -103,8 +100,7 @@ const styles = StyleSheet.create({
   },
   imageSlide: {
     width: 863,
-    height: 709,
-    
+    height: 709
   },
   dot: {
     backgroundColor: "#F0F0F0",

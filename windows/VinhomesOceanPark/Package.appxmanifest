@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="62761AnhPham.VinhomesOceanPark" Publisher="CN=7C96AA88-635F-478F-845B-D002C4237101" Version="1.0.10.0" />
+  <Identity Name="62761AnhPham.VinhomesOceanPark" Publisher="CN=7C96AA88-635F-478F-845B-D002C4237101" Version="1.0.13.0" />
   <mp:PhoneIdentity PhoneProductId="f0d01c7f-5468-4069-9efb-7740e239492c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Vinhomes Ocean Park</DisplayName>

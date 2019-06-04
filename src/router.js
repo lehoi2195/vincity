@@ -31,8 +31,6 @@ const ProjectStack = createStackNavigator(
   }
 );
 
-
-
 const ApartmentStack = createStackNavigator(
   {
     ApartmentScreen: { screen: ApartmentScreen }
@@ -102,7 +100,7 @@ const SwitchScreen = createSwitchNavigator(
   {
     ProjectStack: { screen: ProjectStack },
     ApartmentStack: { screen: ApartmentStack },
-  
+
     VoucherStack: { screen: VoucherStack },
     GalleryStack: { screen: GalleryStack },
     SupportStack: { screen: SupportStack },
