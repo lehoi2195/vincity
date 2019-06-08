@@ -116,6 +116,7 @@ export const APP_GET_APARTMENTS_CATE = 'app/getAparmentCate'
 export const APP_GET_APARTMENT_TYPE = 'app/getAparmentType'
 export const APP_SAVE_APARTMENT = 'app/saveApartment'
 export const APP_SAVE_BUILDING_TYPE = 'app/saveBuildingType'
+export const APP_SAVE_APARTMENT_COMPARE = 'app/saveApartmentCompare'
 /**
  * FAVORITE
  */

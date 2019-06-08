@@ -107,7 +107,7 @@ const SwitchScreen = createSwitchNavigator(
     ContactStack: { screen: ContactStack }
   },
   {
-    initialRouteName: "ApartmentStack",
+    initialRouteName: "ProjectStack",
 
     headerMode: "none",
     resetOnBlur: false,
@@ -168,8 +168,8 @@ class Main extends Component {
     return !this.state.explorer ? (
       <SplashScreen onExplorer={() => this.setState({ explorer: true })} />
     ) : (
-      this.renderMain()
-    );
+        this.renderMain()
+      );
   }
 }
 

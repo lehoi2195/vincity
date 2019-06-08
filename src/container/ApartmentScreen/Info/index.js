@@ -20,24 +20,16 @@ export default class ApartmentDetail extends Component {
   };
   render() {
     const { apartment } = this.props;
-    const tools = this.convertTools(apartment.types[0]);
+    const tools = this.convertTools(apartment);
     return (
       <View row style={styles.tools}>
         {tools.map((item, index) => (
           <View
             key={index}
-            style={[styles.itemTools, { marginLeft: index !== 0 ? 5 : 0 }]}
+            style={[styles.itemTools, { marginLeft: index !== 0 ? 5 : 0  }]}
           >
-            <Image
-              source={item.icon}
-              style={{
-                width: 33,
-                height: 27
-              }}
-            />
-            <Text size12 normal grey2 style={{ textAlign: "center" }}>
-              {item.name}
-            </Text>
+            <Image source={item.icon} resizeMode ='contain' style={{ width: 40, height: 40}}/>
+            <Text size12 normal grey2 style={{ textAlign: "center" }}> {item.name} </Text>
           </View>
         ))}
       </View>
@@ -54,10 +46,12 @@ const styles = StyleSheet.create({
     
   },
   itemTools: {
+  
     width: 76,
     height: "100%",
     justifyContent: "space-evenly",
     alignItems: "center",
-    
   }
 });
+
+// marginLeft: index !== 0 ? 5 : 0

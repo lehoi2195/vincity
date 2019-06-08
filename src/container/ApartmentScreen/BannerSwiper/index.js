@@ -56,7 +56,7 @@ export default class HeaderSwiper extends Component {
         source={images.linearSwiper}
       >
         <Swiper
-          showsButtons={true}
+          //showsButtons={true}
           ref={swiper => {
             this.swiper = swiper;
           }}
@@ -90,17 +90,17 @@ export default class HeaderSwiper extends Component {
 const styles = StyleSheet.create({
   swiper: {
     width: 863,
-    height: 709
+    height: 750
   },
 
   slide: {},
   viewSlide: {
-    height: 709,
+    height: 750,
     width: 863
   },
   imageSlide: {
     width: 863,
-    height: 709
+    height: 750
   },
   dot: {
     backgroundColor: "#F0F0F0",
