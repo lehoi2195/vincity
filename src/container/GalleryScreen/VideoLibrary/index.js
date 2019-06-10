@@ -104,7 +104,13 @@ export default class VideoLibrary extends Component {
   };
 
   renderVideoPlayer() {
-    return <VideoViewer index={this.state.videoIndex} video={this.state.videoSelected} onBack={this.onBack}/>;
+    return (
+      <VideoViewer
+        index={this.state.videoIndex}
+        video={this.state.videoSelected}
+        onBack={this.onBack}
+      />
+    );
   }
 
   renderVideoLibrary() {

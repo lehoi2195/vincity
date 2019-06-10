@@ -50,7 +50,7 @@ class GalleryScreen extends Component {
       if (error) return;
       console.log(data);
       if (data && data.data) {
-        this.setState({ data: data.data });
+        this.setState({ data: data.data } , ()=>{console.log('this.state.data' , this.state.data)});
       }
     });
   };
