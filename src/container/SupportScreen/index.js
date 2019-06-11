@@ -90,6 +90,8 @@ export default class SupportScreen extends Component {
   };
   renderContent = () => {
     const { data , dataAgency } = this.state;
+
+    console.log("Mau van ban" , data)
   
     switch (this.state.index) {
       case 0:
@@ -108,7 +110,9 @@ export default class SupportScreen extends Component {
           <PolicyLibary
             tabLabel="Chính sách hỗ trợ"
             // loading={this.props.loading}
-            data={data.templateDocuments || []}
+          
+
+            data={data.supportPolicy || []}
             // navigation={this.props.navigation}
           />
         );
@@ -130,8 +134,9 @@ export default class SupportScreen extends Component {
             // type={2}
             // projectId={configs.projectId}
             tabLabel="Mẫu văn bản"
+            data={data.templateDocuments || []}
             // loading={this.props.loading}
-            // data={data.documents || []}
+            // data={data.supportPolicy || []}
             // navigation={this.props.navigation}
           />
         );

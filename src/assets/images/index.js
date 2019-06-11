@@ -27,6 +27,7 @@ export default {
   menuSearch: require("./icon/Base/Search.png"),
   agency: require("./icon/Base/Agency.png"),
   policy: require("./icon/Base/Policy.png"),
+  policys : require("./icon/Base/policys.png"),
   hand :require("./icon/Base/hand.png"),
   menuGallery: require("./icon/Base/Gallery/Gallery_Highlight.png"),
   menuBook: require("./icon/Base/Book/Book_Highlight.png"),

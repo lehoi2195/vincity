@@ -56,13 +56,13 @@ class DocumentLibrary extends Component {
       folderIndex: index
     });
   };
-  onBack = () =>{
+  onBack = () => {
     this.setState({
       showDocumentList: false,
       folderSelected: {},
       folderIndex: 0
     });
-  }
+  };
   renderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
