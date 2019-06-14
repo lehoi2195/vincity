@@ -17,7 +17,7 @@ import { getAllProjects } from "@store/actions";
 import { getToken } from "@store/selectors";
 import variables from "@theme/variables";
 import ZoomLayout from "@components/ZoomLayout";
-import { defineProject } from "@constants/define";
+import { defineProject } from "../../constants/define";
 const { width, height } = Dimensions.get("window");
 
 const regionWidth = width;
@@ -28,34 +28,49 @@ const minZoom = 1;
 const maxZoom = 2.5;
 
 class HomeScreen extends Component {
-  state = {
-    data: null,
-    srcHighLight: images.opacityOPSmall,
-    backgroundColor: "rgba(0,0,0,0.3)"
+  constructor(props){
+    super(props);
+    // this.state = {
+    //   data: { ...defineProject[0], ...{ _id: props.project[0]._id } },
+    //   srcHighLight: images.opacityOPSmall,
+    //   backgroundColor: "rgba(0,0,0,0.3)"
+    // }
+    this.state = {
+      data: { ...defineProject[0], ...{ _id: props.project[0]._id } },
+      data :null,
+      // title: 'Bản đồ liên kết vùng',
+      // isFocus: true,
+      // hidden: true,
+      backgroundColor: 'rgba(0,0,0,0.3)',
+      srcHighLight: images.opacityOPSmall,
+      // isDidMount: false,
+      // isVisible: false,
+      // showView: false,
   };
+  }
 
   componentDidMount() {
     const index = defineProject.findIndex(proj => proj.key === "OCEAN_PARK");
+
     console.log("index", index);
     if (index >= 0) {
       const data = {
         ...defineProject[index],
         ...{ _id: defineProject[index]._id }
       };
-      this.setState({
-        data
-      });
+      this.setState({ data} , ()=>{console.log("sadasdasdasd" , data )});
     }
   }
 
   onSubdivision = () => {
     const { data } = this.state;
+    console.log("BuiHongson1996" , data)
     this.props.navigation.navigate("MapScreen", { data });
   };
 
   render() {
     const { data, backgroundColor, srcHighLight } = this.state;
-    console.log("hight light", data);
+    console.log("defineProject" ,...this.props.project[0]._id);
     if (data !== null)
       return (
         <View center style={{ flex: 1 }}>
@@ -104,7 +119,8 @@ const mapStateToProps = state => {
   console.log("redux", state);
   return {
     token: getToken(state),
-    allProjects: state.user.allProjects
+    allProjects: state.user.allProjects,
+    project: state.user.allProjects
   };
 };
 const mapDispatchToProps = dispatch => {

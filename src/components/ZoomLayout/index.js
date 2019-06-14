@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Dimensions, Platform, ScrollView } from "react-native";
+import ViewControl from "react-native-image-pan-zoom";
 import DeviceInfo from "react-native-device-info";
 const { width, height } = Dimensions.get("window");
 
@@ -19,11 +20,13 @@ export default class ZoomLayout extends Component {
   };
 
   setZoomScale = () => {
-    const { imgRootHeight } = this.props;
+    
+    const { ratio, imgRootHeight } = this.props;
     this.setState({ zoomScale: width / imgRootHeight });
   };
 
   scrollTo = (x, y, scale, animated) => {
+    console.log("1892678aghdjkas dsaydsay", x, y, scale);
     this.zoomLayout.scrollTo({ x, y, animated });
     this.setState({ zoomScale: scale });
   };
@@ -35,7 +38,7 @@ export default class ZoomLayout extends Component {
       <ScrollView
         ref={this.refZoomLayout}
         onScroll={event => {
-          console.log("onScroll", event.nativeEvent);
+          console.log("onScrolrfrgerterterterl", event.nativeEvent);
         }}
         contentContainerStyle={style}
         maximumZoomScale={maxZoom}

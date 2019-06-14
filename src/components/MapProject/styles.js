@@ -4,8 +4,8 @@ import variables from "@theme/variables";
 const width = variables.deviceWidth;
 const height = variables.deviceHeight;
 
-const rootWidth = width - 84;
-const rootHeight = height;
+const rootWidth = 1371;
+const rootHeight = 1080;
 
 export default {
   wrapper: {

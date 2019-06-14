@@ -29,8 +29,8 @@ class ListApartment extends Component {
     }
   render() {
       const {apartment , apartmentId ,item ,selected ,isCheck , index ,disable} = this.props
-      const BgSelect = selected ? '#FFCB2A' : "rgba(219, 219, 219, 0.3)"
-      const BgApartMent =  apartment._id === apartmentId ? '#FFCB2A' : "rgba(219, 219, 219, 0.3)"
+      const BgSelect = selected ? '#fceab3' : "rgba(219, 219, 219, 0.3)"
+      const BgApartMent =  apartment._id === apartmentId ? '#fceab3' : "rgba(219, 219, 219, 0.3)"
 
       console.log("selected" , disable)
       

@@ -23,8 +23,9 @@ export default class VoucherScreen extends Component {
               textAlign: "center"
             }}
           >
-            Cùng chờ đón những cập nhật mới trong thời gian tới nhé!
+            Cùng chờ đón những cập nhật mới trong thời gian tới nhé!!!!!
           </Text>
+        
         </View>
     );
   }

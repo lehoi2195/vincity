@@ -12,8 +12,16 @@ const leftt = isIphoneX()
   : height;
 export default {
   wrapper: {
-    width: width - 84,
-    height
+    width: 1371,
+    height : 1080,
+
+  },
+  btnSubdivision :{
+    flexDirection: "row",
+    marginRight: 42,
+    justifyContent: "space-evenly",
+    height: 55,
+    alignItems: "center",
   },
 
   thePark: {},

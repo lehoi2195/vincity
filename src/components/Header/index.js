@@ -8,25 +8,33 @@ export default class Header extends Component {
     title: "",
     theme: "dark",
     showBack: false,
-    hideLine: false,
-    
+    hideLine: false
   };
   state = {};
   render() {
-    const { theme, } = this.props;
+    const { theme } = this.props;
     return (
       <View style={{}}>
         <View row style={{ justifyContent: "space-between" }}>
-          <View row style ={{alignItems :'center'}}>  
-          {this.props.leftImage ?  
-          <Image source = {images.policys} style ={{height : 53, width :53}} resizeMode ={"contain"}/> : null}  
+          <View row style={{ alignItems: "center" }}>
+            {this.props.leftImage ? (
+              <Image
+                source={images.policys}
+                style={{ height: 53, width: 53 }}
+                resizeMode={"contain"}
+              />
+            ) : null}
             <Text
               semibold
               size30
-              style={{ color: theme === "dark" ? "#434345" : "white" ,marginTop :5 ,marginLeft :22 }}
+              style={{
+                color: theme === "dark" ? "#434345" : "white",
+                marginTop: 5,
+                marginLeft: 22
+              }}
             >
-            {this.props.title}
-          </Text>
+              {this.props.title}
+            </Text>
           </View>
           {this.props.showBack ? (
             <TouchableOpacity onPress={this.props.onBack}>

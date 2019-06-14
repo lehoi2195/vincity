@@ -154,7 +154,7 @@ export default class ApartmentScreen extends Component {
                 renderItem={({ item, index }) => {
                   return (
                     <View key={index} style={{  }}>
-                      <Text style={{ color: nameType === item._id  ? "#FFCB2A":"#808284",marginLeft : 34 , marginTop: 32 }} size18>Căn hộ {item.name}</Text>
+                      <Text style={{ color: nameType === item._id  ? "#ebce75":"#808284",marginLeft : 34 , marginTop: 32 }} size18>Căn hộ {item.name}</Text>
                       <View>
                         <FlatList
                           data={item.types}

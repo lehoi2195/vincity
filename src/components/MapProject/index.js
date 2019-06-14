@@ -3,7 +3,7 @@ import { ImageBackground, Platform } from "react-native";
 import DeviceInfo from "react-native-device-info";
 import { Text, View } from "native-base";
 
-import ZoomLayout from "@components/ZoomLayout";
+import ZoomLayout from "../../components/ZoomLayout";
 
 import styles from "./styles";
 import variables from "@theme/variables";
@@ -11,6 +11,7 @@ import variables from "@theme/variables";
 const width = variables.deviceWidth;
 const height = variables.deviceHeight;
 
+const ratio = 1.7;
 const minZoom = 1;
 const maxZoom = 5;
 
@@ -25,18 +26,26 @@ export default class MapProject extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.x !== this.props.x)
+    if (nextProps.x !== this.props.x) {
       this.onScroll(nextProps.x, nextProps.y, nextProps.scale);
+    }
+    console.log("nextProps.x,nextProps.y", nextProps.x, nextProps.y);
   }
 
   onScroll = (x, y, scale) => {
+    
     this.zoomLayout.scrollTo(x, y, scale, true);
+    console.log("onScrollonScrollonScrollonScroll", x, y, scale);
   };
 
   componentDidMount() {
-    this.scale = setTimeout(() => {
+    if (Platform.OS === "ios") {
+      this.scale = setTimeout(() => {
+        this.zoomLayout.setZoomScale();
+      }, 10);
+    } else {
       this.zoomLayout.setZoomScale();
-    }, 10);
+    }
   }
 
   componentWillUnmount() {
@@ -54,6 +63,7 @@ export default class MapProject extends Component {
           maxZoom={maxZoom}
           zoomScale={3}
           imgRootHeight={width}
+          ratio={ratio}
         >
           <ImageBackground
             resizeMode="contain"
