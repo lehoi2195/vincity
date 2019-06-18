@@ -59,8 +59,7 @@ export const defineProject = [
         background: "transparent"
       }
     ],
-    zoneMap:
-      Platform.OS === "ios" ? images.oceanParkMaps : images.oceanParkMaps1,
+    zoneMap: images.oceanParkMaps,
     zones: [
       {
         name: "The Park",
@@ -74,8 +73,8 @@ export const defineProject = [
         scaleApart: DeviceInfo.isTablet()
           ? 2.5
           : Platform.OS === "ios"
-          ? 1.7
-          : 2.5,
+            ? 1.7
+            : 2.5,
         buildings: [
           // L
           {
@@ -247,6 +246,5 @@ export const defineProject = [
         ]
       }
     ]
-  },
-
+  }
 ];

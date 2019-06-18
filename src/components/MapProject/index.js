@@ -11,7 +11,6 @@ import variables from "@theme/variables";
 const width = variables.deviceWidth;
 const height = variables.deviceHeight;
 
-const ratio = 1.7;
 const minZoom = 1;
 const maxZoom = 5;
 
@@ -33,7 +32,7 @@ export default class MapProject extends Component {
   }
 
   onScroll = (x, y, scale) => {
-    
+
     this.zoomLayout.scrollTo(x, y, scale, true);
     console.log("onScrollonScrollonScrollonScroll", x, y, scale);
   };
@@ -63,7 +62,6 @@ export default class MapProject extends Component {
           maxZoom={maxZoom}
           zoomScale={3}
           imgRootHeight={width}
-          ratio={ratio}
         >
           <ImageBackground
             resizeMode="contain"

@@ -1,4 +1,3 @@
-import { Platform } from "react-native";
 import DeviceInfo from "react-native-device-info";
 import variables from "@theme/variables";
 const width = variables.deviceWidth;

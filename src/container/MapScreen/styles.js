@@ -3,18 +3,11 @@ import variables from "@theme/variables";
 import { isIphoneX, isIphoneXR } from "@utils";
 const width = variables.deviceWidth;
 const height = variables.deviceHeight;
-const ratioX = 1.5816;
-const ratioY = 2.1706;
-const leftt = isIphoneX()
-  ? height - variables.tabbarHeight
-  : isIphoneXR()
-  ? height - variables.tabbarHeight - 84
-  : height;
+
 export default {
   wrapper: {
     width: 1371,
     height : 1080,
-
   },
   btnSubdivision :{
     flexDirection: "row",

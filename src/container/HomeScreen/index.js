@@ -37,7 +37,7 @@ class HomeScreen extends Component {
     // }
     this.state = {
       data: { ...defineProject[0], ...{ _id: props.project[0]._id } },
-      data :null,
+      // data :null,
       // title: 'Bản đồ liên kết vùng',
       // isFocus: true,
       // hidden: true,
@@ -51,12 +51,15 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     const index = defineProject.findIndex(proj => proj.key === "OCEAN_PARK");
+    console.log("defineProjecdasdsadat" , defineProject[0])
+    console.log("llklklkklklkl" , this.props.project[0]._id)
+    console.log("11111111" , index )
 
-    console.log("index", index);
+  //   console.log("index", index);
     if (index >= 0) {
       const data = {
         ...defineProject[index],
-        ...{ _id: defineProject[index]._id }
+        ...{ _id: this.props.project[index]._id }
       };
       this.setState({ data} , ()=>{console.log("sadasdasdasd" , data )});
     }
@@ -70,7 +73,6 @@ class HomeScreen extends Component {
 
   render() {
     const { data, backgroundColor, srcHighLight } = this.state;
-    console.log("defineProject" ,...this.props.project[0]._id);
     if (data !== null)
       return (
         <View center style={{ flex: 1 }}>

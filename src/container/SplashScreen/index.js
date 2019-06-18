@@ -12,7 +12,8 @@ import {
   Dimensions,
   TouchableOpacity,
   ImageBackground,
-  ActivityIndicator
+  ActivityIndicator,
+  Alert
 } from "react-native";
 import { Text, View } from "native-base";
 import images from "../../assets/images";

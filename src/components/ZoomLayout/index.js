@@ -20,8 +20,8 @@ export default class ZoomLayout extends Component {
   };
 
   setZoomScale = () => {
-    
-    const { ratio, imgRootHeight } = this.props;
+
+    const { imgRootHeight } = this.props;
     this.setState({ zoomScale: width / imgRootHeight });
   };
 
