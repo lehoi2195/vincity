@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Image, StyleSheet, Dimensions, FlatList } from 'react-native';
-import { Text, View, Content, Container } from 'native-base'
+import { TouchableOpacity, Image, StyleSheet, Dimensions, FlatList, Linking } from 'react-native';
+import { Text, View, Content, Container } from 'native-base';
+// import Communications from "react-native-communications";
 
 import Info from '../Info';
 import images from '../../../assets/images';
 const { width, height } = Dimensions.get("window");
 
 class ApartmentDetail extends Component {
+
+
+  
+  openBrowser = link360 => {
+    Linking.canOpenURL(link360)
+      .then(supported => {
+        if (!supported) {
+          Linking.openURL(link360)
+        } else {
+          Linking.openURL(link360)
+        }
+      })
+      .catch(error => console.log("error : ", error))
+  }
   render() {
     const { apartment, data } = this.props
+
     return (
-      
-      
+
+
       <View style={{ marginLeft: 22, width: 444 }}>
         {Object.keys(apartment).length > 0 ? (
           <Content style={{ padding: 36 }}>
             <Text size24 extrabold style={{ paddingVertical: 36, color: "#1C1C1C" }} >  Căn hộ {apartment.nameType} </Text>
             <View row style={{ marginTop: 10 }}>
+
               <Image source={images.designNormal} style={{ width: 22, height: 22 }} />
+
               <Text size14 style={{ color: "#57585B", marginLeft: 9 }}>  Thiết kế số 1 </Text>
             </View>
             <Info apartment={apartment} />
@@ -35,7 +53,7 @@ class ApartmentDetail extends Component {
             </View>
 
             <View style={{ height: 85, justifyContent: "flex-end", flexDirection: "row", alignItems: "center" }} >
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => this.openBrowser(apartment.images360[1].link)}>
                 <Image source={images.image360} style={{ width: 125, height: 55 }} resizeMode="contain" />
               </TouchableOpacity>
             </View>
@@ -46,10 +64,10 @@ class ApartmentDetail extends Component {
                 extraData={this.state}
                 renderItem={({ item, index }) => {
                   return (
-                    <View row style={{ borderBottomWidth: 1, height: 39, marginTop: 16, borderColor: "#808284" }} >
+                    <TouchableOpacity key={index} style={{ flexDirection: 'row', borderBottomWidth: 1, height: 39, marginTop: 16, borderColor: "#808284" }} >
                       <Image style={{ width: 17, height: 22 }} source={images.iconNote2} />
                       <Text style={{ marginLeft: 24 }}>{item.text}</Text>
-                    </View>);
+                    </TouchableOpacity>);
                 }}
               />
             </View>

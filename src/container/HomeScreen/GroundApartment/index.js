@@ -81,7 +81,8 @@ export default class GroundApartment extends Component {
             isVisible: false,
 
             activeSections: [],
-            select: -1
+            select: -1,
+            chooseGround: false
         };
         this.scale = null;
     }
@@ -102,7 +103,7 @@ export default class GroundApartment extends Component {
                     building: { ...data.data, ...buildOfZone, ...{ nameProject: data.data.project.name } },
                     typeBuilding: data.data.keyBuildingType,
                     nameFloor: data.data.floors.length > 0 ? data.data.floors[0].name : "",
-                }, () => console.log("dsadasasdddddddddd", this.state.building))
+                }, () => console.log("dsadasasdddddddddd", data.data.floors[0].name))
             }
         })
 
@@ -166,7 +167,8 @@ export default class GroundApartment extends Component {
             nameFloor: floor.name,
             floorsKeyClient: floor.key,
             groundFloors: dataFloors[indexGround].ground,
-            srcFloor: building.imageGround[indexFloor]
+            srcFloor: building.imageGround[indexFloor],
+            chooseGround: !this.state.chooseGround
         });
     }
 
@@ -300,9 +302,10 @@ export default class GroundApartment extends Component {
 
     _renderHeader = (section, index) => {
 
-        const { activeSections } = this.state;
-        const isActived = activeSections.findIndex(val => val === index)
-        const nameBuildType = index === 0 ? `${section.name}${"\t"}` : `Toà dạng ${section.name}`;
+        // const { activeSections } = this.state;
+        // const isActived = activeSections.findIndex(val => val === index)
+        // const nameBuildType = index === 0 ? `${section.name}${"\t"}` : `Toà dạng ${section.name}`;
+        console.log("sssssss", section)
 
         return (
             <View row
@@ -316,7 +319,7 @@ export default class GroundApartment extends Component {
                     flexDirection: 'row',
 
                 }}>
-                <Text size13 style={{ color: 'black', fontWeight: isActived ? 'normal' : 'bold' }}>{nameBuildType}{"\t"}</Text>
+                <Text size13 style={{ color: 'black', fontWeight: isActived ? 'normal' : 'bold' }}>ljlk{"\t"}</Text>
                 <Text />
                 <Image source={images.icDown} style={{ width: 25, height: 25 }} resizeMode={"contain"} />
             </View>
@@ -334,33 +337,33 @@ export default class GroundApartment extends Component {
         this.setState({ srcFloor: dataBuild.imageGround[0] })
 
     }
-    _renderContent = (section, index) => {
+    // _renderContent = (section, index) => {
 
-        return (
+    //     return (
 
-            <View style={{ marginTop: 10, alignItems: 'flex-end', }}>
-                {section.buildings.map((item, index) => {
-                    return (
-                        <TouchableOpacity onPress={() => this.chooseApartment(item, index)} style={{ height: 55, width: 272, marginTop: 15, backgroundColor: "#F2F2F2", justifyContent: 'center' }}>
-                            <Text style={{ marginLeft: 34 }}>Căn hộ {item.name} </Text>
-                        </TouchableOpacity>
-                    )
-                })}
-                {/* <Text size13 light style={{ lineHeight: 22, width: '87%', paddingBottom: 10, paddingHorizontal: 10 }}>{section.answer}</Text> */}
-            </View>
-        );
-    };
-    _updateSections = (activeSections) => {
-        this.setState({ activeSections });
+    //         <View style={{ marginTop: 10, alignItems: 'flex-end', }}>
+    //             {section.buildings.map((item, index) => {
+    //                 return (
+    //                     <TouchableOpacity onPress={() => this.chooseApartment(item, index)} style={{ height: 55, width: 272, marginTop: 15, backgroundColor: "#F2F2F2", justifyContent: 'center' }}>
+    //                         <Text style={{ marginLeft: 34 }}>Căn hộ {item.name} </Text>
+    //                     </TouchableOpacity>
+    //                 )
+    //             })}
+    //             {/* <Text size13 light style={{ lineHeight: 22, width: '87%', paddingBottom: 10, paddingHorizontal: 10 }}>{section.answer}</Text> */}
+    //         </View>
+    //     );
+    // };
+    // _updateSections = (activeSections) => {
+    //     this.setState({ activeSections });
 
-    };
+    // };
 
     render() {
         const { srcFloor, hidden, rgba1, rgba2, rgba3, nameFloor, building, isVisible, buildOfZone } = this.state;
         console.log("srcFloorrrrrrrrrrrr", srcFloor)
-        const { buildingType, zones } = this.props.navigation.state.params
+        const { buildingType, zones, nameBuilding } = this.props.navigation.state.params
 
-        console.log("buildingTypeeeee", zones)
+        console.log("buildingTypeeeee", building.floors)
         return (
             <Container>
                 <View style={{ flexDirection: "row" }}>
@@ -383,21 +386,26 @@ export default class GroundApartment extends Component {
                                 : null
                             }
                         </ZoomLayout>
-                        <View center style={{
-                            backgroundColor: 'transparent',
-                            shadowColor: '#30C1DD',
-                            shadowRadius: 10,
-                            shadowOpacity: 0.6,
-                            elevation: 18,
-                            shadowOffset: { width: 10, height: 20 },
 
-                            position: 'absolute', top: 0, height: 196, width: 1371
-                        }}>
-                            <Text> Bản đồ phân khu </Text>
-                        </View>
+                        <ImageBackground
+                            resizeMode={'contain'}
+                            source={images.LinearGradient}
+                            style={{
+                                justifyContent :'center',
+                                alignItems :'center',
+                                width: 1371,
+                                height: 196,
+                                position: 'absolute',
+                                top: 0,
+                            }} >
+
+                            <Text size30 white style = {{fontWeight :'bold'}}> Bản đồ phân khu </Text>
+                        </ImageBackground>
+
+
                     </View>
 
-                    <View style={{ width: 465, }}>
+                    <View style={{ width: 465, paddingHorizontal :17}}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
                             style={{
@@ -405,7 +413,8 @@ export default class GroundApartment extends Component {
                                 justifyContent: "flex-end",
                                 alignItems: "center",
                                 marginRight: 42,
-                                marginVertical: 58
+                                marginVertical: 58,
+                               
                             }}>
                             <Image
                                 source={images.btnBackBlack}
@@ -413,50 +422,43 @@ export default class GroundApartment extends Component {
                             <Text style={{ color: "#434345" }}>Quay lại</Text>
                         </TouchableOpacity>
 
-
-                        <View row
+                        <View center
                             style={{
                                 width: 405,
                                 height: 55,
                                 justifyContent: "space-evenly",
-                                alignItems: "center",
                                 backgroundColor: '#F2F2F2',
-                                flexDirection: 'row',
-
+                             
                             }}>
-                            <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>{zones.zones.name}</Text>
-                            <Text />
-                            <Image source={images.icDown} style={{ width: 25, height: 25 }} resizeMode={"contain"} />
+                            <Text size13 style={{ color: 'black', fontWeight: 'bold', }}>{zones.zones.name}</Text>
                         </View>
-                        <View row
+                        <View center
                             style={{
                                 width: 405,
                                 height: 55,
                                 justifyContent: "space-evenly",
-                                alignItems: "center",
                                 backgroundColor: '#F2F2F2',
-                                flexDirection: 'row',
-                                marginTop: 16
+                                marginTop: 16,
+                             
                             }}>
-                            <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>Tòa dạng L</Text>
-                            <Text />
-                            <Image source={images.icDown} style={{ width: 25, height: 25 }} resizeMode={"contain"} />
+                            <Text size13 style={{ color: 'black', fontWeight: 'bold', }}>{nameBuilding}</Text>
+
                         </View>
-                        <View row
+                        <View center
                             style={{
                                 width: 405,
                                 height: 55,
                                 justifyContent: "space-evenly",
-                                alignItems: "center",
                                 backgroundColor: '#F2F2F2',
-                                flexDirection: 'row',
-                                marginTop: 16
+                                marginTop: 16,
+                         
                             }}>
                             <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>Tòa {buildOfZone.name}</Text>
-                            <Text />
-                            <Image source={images.icDown} style={{ width: 25, height: 25 }} resizeMode={"contain"} />
                         </View>
-                        <View row
+
+                        <TouchableOpacity row
+                            disabled={building.floors && building.floors.length > 1 ? false : true}
+                            onPress={() => { this.setState({ chooseGround: !this.state.chooseGround }) }}
                             style={{
                                 width: 405,
                                 height: 55,
@@ -464,53 +466,22 @@ export default class GroundApartment extends Component {
                                 alignItems: "center",
                                 backgroundColor: '#F2F2F2',
                                 flexDirection: 'row',
-                                marginTop: 16
+                                marginTop: 16,
+                           
                             }}>
-                            <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>Tòa {buildOfZone.name}</Text>
+                            <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>{`${nameFloor}`}</Text>
                             <Text />
                             <Image source={images.icDown} style={{ width: 25, height: 25 }} resizeMode={"contain"} />
-                        </View>
+                        </TouchableOpacity>
 
-                        {/* <ScrollView>
-                            <View style={{ marginRight: 42 }}>
-                                <Accordion
-                                    underlayColor='transparent'
-                                    sections={buildingType}
-                                    // expandMultiple={true}
-                                    activeSections={this.state.activeSections}
-                                    renderHeader={this._renderHeader}
-                                    renderContent={this._renderContent}
-                                    onChange={this._updateSections}
-                                />
-
-                            </View>
-                        </ScrollView> */}
-
-                        {/* <FlatList
-                            keyExtractor={item => item._id}
-                            data={buildingType}
-                            renderItem={({ item, index }) => {
-                                const nameBuildType =
-                                    index === 0 ?`${item.name}${"\t"}` : `Toà dạng ${item.name}`;
-                                return (
-                                    <TouchableOpacity
-                                        key={index}
-                                        style={{
-                                            width: 405,
-                                            height: 55,
-                                            justifyContent: "space-evenly",
-                                            alignItems: "center",
-                                            backgroundColor: '#F2F2F2',
-                                            marginTop :16,
-                                            flexDirection :'row'
-                                        }}>
-                                        <Text style={{ fontWeight: "bold" }}>{nameBuildType}{"\t"}</Text>
-                                        <Text/>
-                                        <Image source = {images.icDown} style = {{ width :25 , height :25 }}  resizeMode={"contain"}/>
-                                    </TouchableOpacity>
-                                );
-                            }}
-                        /> */}
+                        {this.state.chooseGround ?
+                            <View style={{}}>
+                                {building.floors && building.floors.length > 0 && building.floors.map((floor, index) => (
+                                    <TouchableOpacity key={index} style={{ backgroundColor: '#F2F2F2', justifyContent: 'center', marginLeft: 115, height: 55, width: 290, marginTop: 10 }} onPress={() => this.chooseFloor(floor)} >
+                                        <Text normal size16 style={{ marginLeft: 34, color: 'black', fontWeight: 'bold' }}>{floor.name} </Text>
+                                    </TouchableOpacity>)
+                                )}
+                            </View> : null}                
                     </View>
                 </View>
 

@@ -6,22 +6,19 @@ import {
   Platform,
   TouchableWithoutFeedback
 } from "react-native";
-// import DeviceInfo from "react-native-device-info";
-import { View } from "native-base";
-// import { connect } from "react-redux";
-import Swiper from "@components/Swiper";
-import images from "../../../assets/images";
+
+import { View, Text } from "native-base";
+import Swiper from "../../../components/Swiper";
+
+import imagess from "../../../assets/images";
 
 export default class HeaderSwiper extends Component {
-  componentDidMount() {}
 
-  // swiperIndexChanged = index => {
-  //   console.log("swiperIndexChanged", "index", index);
-  // };
+  componentDidMount() { }
 
-  // handleOpenGallery = (images, index) => {
-  //   this.props.openGallery(images, index);
-  // };
+  swiperIndexChanged = index => {
+    console.log("swiperIndexChanged", "index", index);
+  };
 
   // randomImage = arrImage => {
   //   let newArrImage = [];
@@ -33,74 +30,69 @@ export default class HeaderSwiper extends Component {
   // };
 
   render() {
-    // const { apartment, width, height, isReality } = this.props;
-    // const randomImgGround =
-    //   apartment.imagesGround.length < 5
-    //     ? apartment.imagesGround
-    //     : this.randomImage(apartment.imagesGround);
+    const { apartment, isReality } = this.props;
+    // console.log("lllllllllllllllll" ,apartment)
+    // const randomImgGround = apartment.imagesGround.length < 5 ? apartment.imagesGround
+    //   : this.randomImage(apartment.imagesGround);
 
-    // const images = isReality
-    //   ? [...[apartment.image], ...apartment.imagesFurniture]
-    //   : [...randomImgGround, ...apartment.imagesFurniture];
-    const demo = [
-      { son: images.demoImage },
-      { son: images.demoImage },
-      { son: images.demoImage },
-      { son: images.demoImage },
-      { son: images.demoImage }
-    ];
+    const images =
+      [...[apartment.image], ...apartment.imagesFurniture];
+
 
     return (
-      <ImageBackground
-        style={[styles.swiper, { ...this.props.style }]}
-        source={images.linearSwiper}
-      >
-        <Swiper
-          //showsButtons={true}
-          ref={swiper => {
-            this.swiper = swiper;
-          }}
-          // removeClippedSubviews={false}
-          style={styles.slide}
-          height={709}
-          width={863}
-          // autoplay={true}
-          loop
-          dot={<View style={styles.dot} />}
-          activeDot={<View style={styles.activeDot} />}
-          // onIndexChanged={this.swiperIndexChanged}
+      <View>
+        <ImageBackground
+          style={[styles.swiper, { ...this.props.style }]}
+          source={imagess.linearSwiper}
         >
-          {demo.map((item, index) => (
-            <View key={index}>
-              <Image
-                defaultSource={images.placeholder}
-                resizeMode="stretch"
-                source={item.son}
-                // source={images.tutorial1}
-                style={[styles.imageSlide]}
-              />
-            </View>
-          ))}
-        </Swiper>
-      </ImageBackground>
+
+          <Swiper
+            showsButtons
+            ref={swiper => {
+              this.swiper = swiper;
+            }}
+            removeClippedSubviews={false}
+            style={styles.slide}
+            height={1080}
+            width={1371}
+            loop
+            dot={<View style={styles.dot} />}
+            activeDot={<View style={styles.activeDot} />}
+            onIndexChanged={this.swiperIndexChanged}
+          >
+            {images.map((item, index) => (
+              <View key={index}>
+                <Image
+                  defaultSource={images.placeholder}
+                  resizeMode='contain'
+                  source={{ uri: item }}
+                  style={[styles.imageSlide]}
+                />
+              </View>
+            ))}
+          </Swiper>
+        </ImageBackground>
+       
+      </View>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
   swiper: {
-    width: 863,
-    height: 750
+    width: 1371,
+    height: 1041
   },
 
   slide: {},
   viewSlide: {
-    height: 750,
-    width: 863
+    height: 1080,
+    width: 1371
   },
   imageSlide: {
-    width: 863,
-    height: 750
+    width: 1371,
+    height: 1080
   },
   dot: {
     backgroundColor: "#F0F0F0",

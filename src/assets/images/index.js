@@ -81,6 +81,7 @@ export default {
   buyNow: require("./icon/Base/buyNow.png"),
   submit: require("./icon/Base/submit.png"),
   xem360 : require("./icon/xem360.png"),
+  LinearGradient : require("./icon/Base/LinearGradient.png"),
 
   // Tutorial
   tutorial1: require("./icon/Tutorial/tutorial_1.png"),

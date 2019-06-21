@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
-import { Image , StyleSheet , TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { Text, View, Container } from 'native-base';
+
 import images from '../../../assets/images';
 import Info from '../../ApartmentScreen/Info';
+import Swiper from "../../../components/Swiper";
+import HeaderSwiper from "../../ApartmentScreen/BannerSwiper"
 // import console = require('console');
 
 class DetailGroundApartment extends Component {
+    openBrowser = link360 => {
+        Linking.canOpenURL(link360)
+            .then(supported => {
+                if (!supported) {
+                    Linking.openURL(link360)
+                } else {
+                    Linking.openURL(link360)
+                }
+            })
+            .catch(error => console.log("error : ", error))
+    }
     render() {
         const { apartment } = this.props.navigation.state.params
-        console.log("4324234234234234234" , apartment)
+        console.log("4324234234234234234", apartment)
         return (
             <Container>
                 <View style={{ flexDirection: 'row' }}>
 
                     <View style={{ height: 1080, width: 1371 }}>
-
+                        <HeaderSwiper apartment={apartment} />
                     </View>
-                    <View style={{ width: 465, padding: 66,  }}>
-                        
+                    <View style={{ width: 465, padding: 66, }}>
+
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
                             style={{
@@ -33,34 +47,35 @@ class DetailGroundApartment extends Component {
                         </TouchableOpacity>
 
                         <View row style={{ justifyContent: 'space-between' }}>
-                            <Text>Mẫu  Song Lập</Text>
+                            <Text>Căn hộ {apartment.description}</Text>
                             <Image source={images.starDeActive} style={{ height: 25, height: 25 }} />
                         </View>
-                        <View row style={{}}>
+                        <View row style={{ marginTop: 14 }}>
                             <Image source={images.designNormal} style={{ width: 22, height: 22 }} />
-                            <Text size14 > SL 01</Text>
+                            <Text size14 > Thiết kế số 01</Text>
                         </View>
 
                         <Info apartment={apartment} />
-                        <View row style={{ justifyContent: 'space-between' , backgroundColor :'#fff' , marginVertical : 30 }}>
-                            <View row style={{  }}>
+                        <View row style={{ justifyContent: 'space-between', backgroundColor: '#fff', marginVertical: 30 }}>
+                            <View row style={{}}>
                                 <Image source={images.share} style={{ height: 25, width: 25 }} resizeMode={'contain'} />
-                                <Image source={images.download} style={{ height: 25, width: 25 ,marginLeft :51 }} resizeMode={'contain'} />
+                                <Image source={images.download} style={{ height: 25, width: 25, marginLeft: 51 }} resizeMode={'contain'} />
                             </View>
-
-                            <Image source={images.xem360} style={{ height: 41, width: 105 }} resizeMode={'contain'} />
+                            <TouchableOpacity onPress={() => this.openBrowser(apartment.images360[1].link)}>
+                                <Image source={images.xem360} style={{ height: 41, width: 105 }} resizeMode={'contain'} />
+                            </TouchableOpacity>
                         </View>
                         <View style={{ marginTop: 32 }}>
-                           <Text bold size16 style={{ marginLeft: 5, color: "#000" }}>Thông tin căn hộ thuộc dự án </Text>
-                           <View row style={styles.sTim}>
-                                 <Text grey3 size14 normal>Diện tích tim tường </Text>
-                                 <Text grey3 size14 normal style={styles.txtS}>{apartment.heartWall} m² </Text>
+                            <Text bold size16 style={{ marginLeft: 5, color: "#000" }}>Thông tin căn hộ thuộc dự án </Text>
+                            <View row style={styles.sTim}>
+                                <Text grey3 size14 normal>Diện tích tim tường </Text>
+                                <Text grey3 size14 normal style={styles.txtS}>{apartment.heartWall} m² </Text>
+                            </View>
+                            <View row style={styles.sThong}>
+                                <Text grey3 size14 normal>Diện tích thông thuỷ </Text>
+                                <Text grey3 size14 normal style={styles.txtS}>{apartment.clearSpan} m² </Text>
+                            </View>
                         </View>
-                        <View row style={styles.sThong}>
-                          <Text grey3 size14 normal>Diện tích thông thuỷ </Text>
-                          <Text grey3 size14 normal style={styles.txtS}>{apartment.clearSpan} m² </Text>
-                        </View>
-                      </View>
                     </View>
                 </View>
             </Container>
@@ -76,13 +91,33 @@ const styles = StyleSheet.create({
         width: 375,
         height: 35,
         marginTop: 2
-      },
-      sTim: {
+    },
+    sTim: {
         justifyContent: "space-between",
         paddingHorizontal: 5,
         width: 375,
         height: 35,
         backgroundColor: "#BDBDBD1A",
         marginTop: 16
-      },
+    },
+    dot: {
+        backgroundColor: "#F0F0F0",
+        width: 6,
+        height: 6,
+        marginRight: 8,
+        marginBottom: 10,
+        transform: [{ rotate: "45deg" }]
+    },
+    activeDot: {
+        backgroundColor: "#2EB569",
+        width: 6,
+        height: 6,
+        marginRight: 8,
+        marginBottom: 10,
+        transform: [{ rotate: "45deg" }]
+    },
+    imageSlide: {
+        width: 1371,
+        height: 1080
+    },
 })
