@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image, StyleSheet, Dimensions, FlatList } from 'react-native';
-import { Text, View, Content } from 'native-base'
+import { Text, View, Content, Container } from 'native-base'
 
 import Info from '../Info';
 import images from '../../../assets/images';
@@ -10,6 +10,8 @@ class ApartmentDetail extends Component {
   render() {
     const { apartment, data } = this.props
     return (
+      
+      
       <View style={{ marginLeft: 22, width: 444 }}>
         {Object.keys(apartment).length > 0 ? (
           <Content style={{ padding: 36 }}>

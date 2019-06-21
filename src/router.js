@@ -16,11 +16,18 @@ import GalleryScreen from "./container/GalleryScreen";
 import SupportScreen from "./container/SupportScreen";
 import ContactScreen from "./container/ContactScreen";
 import MapScreen from "./container/MapScreen";
+import ApartmentDetail from "./container/ApartmentScreen/ApartmentDetail"
+
+import GroundApartment from "./container/HomeScreen/GroundApartment";
+import DetailGroundApartment from "./container/HomeScreen/DetailGroundApartment"
 
 const ProjectStack = createStackNavigator(
   {
     HomeScreen: { screen: HomeScreen },
-    MapScreen: { screen: MapScreen }
+    MapScreen: { screen: MapScreen },
+    GroundApartment : { screen : GroundApartment },
+    DetailGroundApartment : { screen : DetailGroundApartment },
+    
   },
   {
     initialRouteName: "HomeScreen",

@@ -70,6 +70,7 @@ export default {
   next1: require("./icon/Base/next1.png"),
   search: require("./icon/Base/search1.png"),
   icDown: require("./icon/Base/Dropdown_1.png"),
+  icDown2: require("./icon/Base/Dropdown_2.png"),
   icDrop: require("./icon/Base/icDrop.png"),
   icDrop1: require("./icon/Base/icDrop1.png"),
   dropDownFFF: require("./icon/Base/Dropdown_FFF.png"),
@@ -79,6 +80,7 @@ export default {
   icFB: require("./icon/Base/iconFB.png"),
   buyNow: require("./icon/Base/buyNow.png"),
   submit: require("./icon/Base/submit.png"),
+  xem360 : require("./icon/xem360.png"),
 
   // Tutorial
   tutorial1: require("./icon/Tutorial/tutorial_1.png"),
