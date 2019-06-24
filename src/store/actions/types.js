@@ -136,3 +136,5 @@ export const APP_GET_ZONES = 'app/appGetZone';
 export const APP_GET_ALL_BUILDING_OF_ZONE = 'app/getAllBuildingOfZone';
 export const APP_GET_BUILDING = 'app/getBuilding';
 export const APP_GET_CONTACT = 'app/getContact';
+
+export const APP_GET_PROMOTION = 'app/getPromotion';

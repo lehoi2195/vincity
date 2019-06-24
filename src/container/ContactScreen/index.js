@@ -49,7 +49,7 @@ export default class ContactScreen extends Component {
     const { dataVinCity } = this.state
     console.log("BuiHongSon", dataVinCity)
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: "#ffffff" }}>
         <Image style={styles.banner} source={images.banner} />
         {dataVinCity.length > 0 ? <View row style={{ paddingVertical: 150, paddingLeft: 225 }}>
 

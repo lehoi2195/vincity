@@ -123,5 +123,11 @@ export default {
             { headers: { Authorization: token } }
         )
     },
+    getListPromotion: (token, page) =>
+        API.get(
+            `/preferentials?page=${page}`,
+            {},
+            { headers: { Authorization: token } }
+        ),
 
 };

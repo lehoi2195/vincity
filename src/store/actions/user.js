@@ -23,7 +23,8 @@ import {
   USER_GET_TODAY,
   USER_SAVE_DATA_TODAY,
   USER_GET_NEWS_DETAIL,
-  USER_LIKE_APARTMENT
+  USER_LIKE_APARTMENT,
+  APP_GET_PROMOTION
 } from './types';
 
 export const getListNotification = (...args) => ({ type: USER_GET_LIST_NOTIFICATION, args });
@@ -44,6 +45,8 @@ export const getContact = (...args) => ({ type: APP_GET_CONTACT, args });
 export const getToday = (...args) => ({ type: USER_GET_TODAY, args });
 export const getNewsDetail = (...args) => ({ type: USER_GET_NEWS_DETAIL, args });
 export const likeApartment = (...args) => ({ type: USER_LIKE_APARTMENT, args });
+
+export const getListPromotion = (...args) => ({ type: APP_GET_PROMOTION, args });
 
 
 export const saveListNotification = data => ({

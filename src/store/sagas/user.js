@@ -21,7 +21,8 @@ import {
     APP_GET_CONTACT,
     USER_GET_TODAY,
     USER_LIKE_APARTMENT,
-    USER_GET_NEWS_DETAIL
+    USER_GET_NEWS_DETAIL,
+    APP_GET_PROMOTION
 } from '../../store/actions/types';
 import { saveListNotification, saveCountNotification, saveDocumentLibrary, saveDataGetAllProject, saveDataToday } from '../actions/user';
 import { createRequestSaga } from './common';
@@ -148,6 +149,13 @@ const requestLikeApartment = createRequestSaga({
     failure: []
 });
 
+const requestGetListPromotion = createRequestSaga({
+    request: user.getListPromotion,
+    key: 'getListPromotion',
+    success: [
+    ],
+    failure: []
+});
 export default [
     function* fetchWatcher() {
         yield all([
@@ -169,6 +177,7 @@ export default [
             takeLatest(USER_GET_TODAY, requestGetToday),
             takeLatest(USER_GET_NEWS_DETAIL, requestGetNewsDetail),
             takeLatest(USER_LIKE_APARTMENT, requestLikeApartment),
+            takeLatest(APP_GET_PROMOTION, requestGetListPromotion)
         ]);
     }
 ];
