@@ -58,7 +58,7 @@ class ApartmentDetail extends Component {
               </TouchableOpacity>
             </View>
             <View style={{}}>
-              <Text size14 style={{ color: "#1C1C1C" }}> Tài liệu liên quan </Text>
+              <Text size16 bold style={{ color: "#1C1C1C" }}> Tài liệu liên quan </Text>
               <FlatList
                 data={data}
                 extraData={this.state}

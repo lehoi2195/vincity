@@ -38,13 +38,13 @@ export default class MapProject extends Component {
   };
 
   componentDidMount() {
-    if (Platform.OS === "ios") {
-      this.scale = setTimeout(() => {
-        this.zoomLayout.setZoomScale();
-      }, 10);
-    } else {
+    // if (Platform.OS === "ios") {
+    //   this.scale = setTimeout(() => {
+    //     this.zoomLayout.setZoomScale();
+    //   }, 10);
+    // } else {
       this.zoomLayout.setZoomScale();
-    }
+    // }
   }
 
   componentWillUnmount() {

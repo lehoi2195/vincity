@@ -82,7 +82,9 @@ export default class GroundApartment extends Component {
 
             activeSections: [],
             select: -1,
-            chooseGround: false
+            chooseGround: false,
+            top: 0,
+            right: 0,
         };
         this.scale = null;
     }
@@ -286,7 +288,7 @@ export default class GroundApartment extends Component {
                             top: this.regionMarginTop(ground.top),
                         }}
                     >
-                        <Image source={ground.src} style={{ width: this.regionSizeW(ground.w), height: this.regionSizeH(ground.h) }} resizeMode="contain" />
+                        <Image source={ground.src} style={{ opacity: 0, width: this.regionSizeW(ground.w), height: this.regionSizeH(ground.h) }} resizeMode="contain" />
 
                     </TouchableOpacity >
                 ))
@@ -302,11 +304,7 @@ export default class GroundApartment extends Component {
 
     _renderHeader = (section, index) => {
 
-        // const { activeSections } = this.state;
-        // const isActived = activeSections.findIndex(val => val === index)
-        // const nameBuildType = index === 0 ? `${section.name}${"\t"}` : `Toà dạng ${section.name}`;
         console.log("sssssss", section)
-
         return (
             <View row
                 style={{
@@ -337,26 +335,6 @@ export default class GroundApartment extends Component {
         this.setState({ srcFloor: dataBuild.imageGround[0] })
 
     }
-    // _renderContent = (section, index) => {
-
-    //     return (
-
-    //         <View style={{ marginTop: 10, alignItems: 'flex-end', }}>
-    //             {section.buildings.map((item, index) => {
-    //                 return (
-    //                     <TouchableOpacity onPress={() => this.chooseApartment(item, index)} style={{ height: 55, width: 272, marginTop: 15, backgroundColor: "#F2F2F2", justifyContent: 'center' }}>
-    //                         <Text style={{ marginLeft: 34 }}>Căn hộ {item.name} </Text>
-    //                     </TouchableOpacity>
-    //                 )
-    //             })}
-    //             {/* <Text size13 light style={{ lineHeight: 22, width: '87%', paddingBottom: 10, paddingHorizontal: 10 }}>{section.answer}</Text> */}
-    //         </View>
-    //     );
-    // };
-    // _updateSections = (activeSections) => {
-    //     this.setState({ activeSections });
-
-    // };
 
     render() {
         const { srcFloor, hidden, rgba1, rgba2, rgba3, nameFloor, building, isVisible, buildOfZone } = this.state;
@@ -379,7 +357,7 @@ export default class GroundApartment extends Component {
                         >
                             {srcFloor ?
 
-                                <ImageBackground style={{ width: "100%", height: "100%", }} source={srcFloor} >
+                                <ImageBackground style={{ width: "100%", height: "100%", zIndex: 9999, }} source={srcFloor} >
                                     {this.renderHighLight()}
                                 </ImageBackground>
 
@@ -391,21 +369,21 @@ export default class GroundApartment extends Component {
                             resizeMode={'contain'}
                             source={images.LinearGradient}
                             style={{
-                                justifyContent :'center',
-                                alignItems :'center',
+                                justifyContent: 'center',
+                                alignItems: 'center',
                                 width: 1371,
                                 height: 196,
                                 position: 'absolute',
                                 top: 0,
                             }} >
 
-                            <Text size30 white style = {{fontWeight :'bold'}}> Bản đồ phân khu </Text>
+                            <Text size30 white style={{ fontWeight: 'bold' }}> Bản đồ phân khu </Text>
                         </ImageBackground>
 
 
                     </View>
 
-                    <View style={{ width: 465, paddingHorizontal :17}}>
+                    <View style={{ width: 465,  }}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.goBack()}
                             style={{
@@ -414,7 +392,7 @@ export default class GroundApartment extends Component {
                                 alignItems: "center",
                                 marginRight: 42,
                                 marginVertical: 58,
-                               
+                                marginLeft :17
                             }}>
                             <Image
                                 source={images.btnBackBlack}
@@ -422,41 +400,41 @@ export default class GroundApartment extends Component {
                             <Text style={{ color: "#434345" }}>Quay lại</Text>
                         </TouchableOpacity>
 
-                        <View center
+                        <View 
                             style={{
                                 width: 405,
                                 height: 55,
-                                justifyContent: "space-evenly",
+                                justifyContent: 'center',
                                 backgroundColor: '#F2F2F2',
-                             
+                                marginLeft :17
                             }}>
-                            <Text size13 style={{ color: 'black', fontWeight: 'bold', }}>{zones.zones.name}</Text>
+                            <Text size13 style={{ marginLeft : 68 , color: 'black', fontWeight: 'bold', }}>{zones.zones.name}</Text>
                         </View>
-                        <View center
+                        <View 
                             style={{
                                 width: 405,
                                 height: 55,
-                                justifyContent: "space-evenly",
+                                justifyContent: 'center',
                                 backgroundColor: '#F2F2F2',
                                 marginTop: 16,
-                             
+                                marginLeft :17
                             }}>
-                            <Text size13 style={{ color: 'black', fontWeight: 'bold', }}>{nameBuilding}</Text>
-
+                            <Text size13 style={{ marginLeft : 68 , color: 'black', fontWeight: 'bold', }}>{nameBuilding}</Text>
                         </View>
-                        <View center
+                        <View 
                             style={{
                                 width: 405,
                                 height: 55,
-                                justifyContent: "space-evenly",
+                                justifyContent: 'center',
                                 backgroundColor: '#F2F2F2',
                                 marginTop: 16,
-                         
+                                marginLeft :17
                             }}>
-                            <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>Tòa {buildOfZone.name}</Text>
+                            <Text size13 style={{ marginLeft : 68 , color: 'black', fontWeight: 'bold' }}>Tòa {buildOfZone.name}</Text>
                         </View>
 
                         <TouchableOpacity row
+                            onLayout={({ nativeEvent: { layout: { x, y } } }) => { this.setState({ top: y, right: x }); }}
                             disabled={building.floors && building.floors.length > 1 ? false : true}
                             onPress={() => { this.setState({ chooseGround: !this.state.chooseGround }) }}
                             style={{
@@ -464,10 +442,11 @@ export default class GroundApartment extends Component {
                                 height: 55,
                                 justifyContent: "space-evenly",
                                 alignItems: "center",
-                                backgroundColor: '#F2F2F2',
+                                backgroundColor: this.state.chooseGround  ? "#FFDB6B" : "#F2F2F2",
                                 flexDirection: 'row',
                                 marginTop: 16,
-                           
+                                marginLeft:this.state.chooseGround ? 0 : 17
+
                             }}>
                             <Text size13 style={{ color: 'black', fontWeight: 'bold' }}>{`${nameFloor}`}</Text>
                             <Text />
@@ -475,13 +454,47 @@ export default class GroundApartment extends Component {
                         </TouchableOpacity>
 
                         {this.state.chooseGround ?
+                            <View style={{
+                                top: this.state.top,
+                                right: this.state.right + 465,
+                                position: "absolute",
+                                backgroundColor: "#FFDB6B"
+                            }}>
+                                {building.floors && building.floors.length > 0 ? 
+                                <FlatList
+                                   
+                                    keyExtractor={item => item._id}
+                                    data={building.floors}
+                                    renderItem={({ item, index }) => {
+                                        return (
+                                            <View key={index} style={{ width: 280 }}>
+                                                <TouchableOpacity
+                                                    onPress={() => this.chooseFloor(item)}
+                                                    style={{
+                                                        height: 55,
+                                                        justifyContent: "center",
+                                                        alignItems: "center",
+                                                        
+                                                      
+                                                    }}>
+                                                    <Text normal size16 style={{ marginLeft: 34, color: 'black', fontWeight: 'bold' }}>{item.name} </Text>
+                                                </TouchableOpacity>
+                                            </View>
+                                        )
+                                    }}
+                                /> : null }
+                            </View>
+
+                            : null}
+
+                        {/* {this.state.chooseGround ?
                             <View style={{}}>
                                 {building.floors && building.floors.length > 0 && building.floors.map((floor, index) => (
                                     <TouchableOpacity key={index} style={{ backgroundColor: '#F2F2F2', justifyContent: 'center', marginLeft: 115, height: 55, width: 290, marginTop: 10 }} onPress={() => this.chooseFloor(floor)} >
                                         <Text normal size16 style={{ marginLeft: 34, color: 'black', fontWeight: 'bold' }}>{floor.name} </Text>
                                     </TouchableOpacity>)
                                 )}
-                            </View> : null}                
+                            </View> : null} */}
                     </View>
                 </View>
 

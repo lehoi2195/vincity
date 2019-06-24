@@ -57,7 +57,7 @@ class MapScreen extends Component {
       sourceRegion: '',
       imgHighLight: [],
       x: 0,
-      y: 0,
+      y: -30,
       scale: 3,
       hidden: true,
       buildingType: [],
@@ -112,15 +112,17 @@ class MapScreen extends Component {
       console.log("dataZone: ", dataZone);
       const scale = dataZone.scale; // Tuỳ vào dự án, highlight lớn nhỏ, thì độ scale tỉ lệ nghịch theo size ảnh size highlight
       const signX = dataZone.left - a > 0 ? -1 : 1; // Xác định góc phần tư so với trục toạ độ xoy (Only Android)
-      console.log(" signX", signX);
+      // console.log(" signX", signX);
       const signY = dataZone.top - b < 0 ? 1 : -1;
-      console.log(" signY", signY);
+      // console.log(" signY", signY);
       this.setState({
         dataDefineZone: dataZone,
         nameRegion: zone.name,
-        x: 1000,
-        y: 700,
-        scale: scale,
+
+        x: 1500,
+        y: -700,
+        scale: 2.5,
+
         imgHighLight: dataZone.buildings,
         sourceRegion: dataZone.highlight,
         nameBuilding: "Chọn toà dạng",
@@ -174,6 +176,16 @@ class MapScreen extends Component {
     }
     this.setState({ showRegion: !this.state.showRegion });
   };
+  onChooseBuilding = () => {
+    const { nameBuilding } = this.state;
+
+    if (nameBuilding === "Chọn tòa dạng") {
+      Toast.show({ text: "Vui lòng chọn tòa nhà trước!" });
+      return;
+    }
+    this.setState({ showBuilding: !this.state.showBuilding })
+  
+  }
 
   chooseTypeBuilding = (item, index) => {
     this.setState({
@@ -300,8 +312,8 @@ class MapScreen extends Component {
       this.setState({
         nameApartment: building.name,
         imgHighLight: [dataBuild],
-        x: signX * Math.abs((dataBuild.left + dataBuild.w / 2) / ratio - rootWidth / (2 * ratio)),
-        y: signY * Math.abs((dataBuild.top + dataBuild.h / 2) / ratio - rootHeight / (2 * ratio)),
+        x:  500,
+        y: 80 ,
         scale: scale
       }, console.log("nameBuilding", this.state.nameBuilding));
 
@@ -322,15 +334,7 @@ class MapScreen extends Component {
       </View>
     );
   };
-  onChooseBuilding = () => {
-    const { nameBuilding } = this.state;
-    if (nameBuilding === "Chọn tòa dạng") {
-      Toast.show({ text: "Vui lòng chọn tòa nhà trước!" });
-      return;
-    }
 
-    this.setState({ showBuilding: !this.state.showBuilding })
-  }
 
   render() {
     const { data } = this.props.navigation.state.params;
@@ -355,7 +359,7 @@ class MapScreen extends Component {
       showBuilding
     } = this.state;
 
-    console.log("numberrrr", chooseBuilding);
+    console.log("numberrrr", data);
 
     return (
       <Container>
@@ -365,7 +369,7 @@ class MapScreen extends Component {
               onPress={this.onBack}
               source={data.zoneMap}
               title={"Bản đồ phân khu"}
-              x={x}
+              x= {x}
               y={y}
               scale={scale} >
               {nameRegion !== 'Chọn phân khu'
@@ -432,14 +436,10 @@ class MapScreen extends Component {
                   backgroundColor: chooseSubdivision ? "#FFDB6B" : "#F2F2F2",
                   marginLeft: chooseSubdivision ? 0 : 17
                 }]}>
-              <Text size16 style={{
-                fontWeight: chooseSubdivision ? "bold" : "normal"
-              }}>{nameRegion}{"\t"}
-              </Text>
-              <Text />
+              <Text size16 style={{ fontWeight: chooseSubdivision ? "bold" : "normal",position:'absolute', left: 55 }}>{nameRegion}{"\t"}</Text>
               <Image
-                source={chooseSubdivision || showBuilding ? images.icDrop : images.icDrop1}
-                style={{ width: 10, height: 10 }}
+                source={chooseSubdivision ? images.icDrop : images.icDrop1}
+                style={{ width: 10, height: 10 ,position:'absolute',right:40 }}
                 resizeMode={"contain"} />
             </TouchableOpacity>
             {/* Chọn tòa */}
@@ -453,14 +453,13 @@ class MapScreen extends Component {
                 marginTop: 12,
                 marginLeft: showRegion ? 0 : 17
               }]} >
-              <Text size16 style={{ fontWeight: showRegion ? "bold" : "normal" }} >{nameBuilding}{"\t"}</Text>
-              <Text />
-              <Image source={showRegion ? images.icDrop : images.icDrop1} style={{ width: 10, height: 10 }} resizeMode={"contain"} />
+              <Text size16 style={{ fontWeight: showRegion ? "bold" : "normal",position:'absolute',left: 55 }} >{nameBuilding}{"\t"}</Text>
+              <Image source={showRegion ? images.icDrop : images.icDrop1} style={{ width: 10, height: 10 ,position :'absolute' , right:40 }} resizeMode={"contain"} />
             </TouchableOpacity>
             {/* Căn hộ của L ,U ,T ,Z */}
 
             <TouchableOpacity
-              disabled={showBuilding || showRegion ? true : false}
+              disabled={chooseSubdivision || showRegion ? true : false}
               // disabled={ chooseSubdivision ? true : false}
               onPress={this.onChooseBuilding}
               onLayout={({ nativeEvent: { layout: { x, y } } }) => { this.setState({ top: y, right: x }); }}
@@ -470,9 +469,8 @@ class MapScreen extends Component {
                 marginTop: 12,
                 marginLeft: showBuilding ? 0 : 17
               }]} >
-              <Text size16 style={{ fontWeight: showBuilding ? "bold" : "normal" }} >{nameApartment} {"\t"}  </Text >
-              <Text />
-              <Image source={showBuilding ? images.icDrop : images.icDrop1} style={{ width: 10, height: 10 }} resizeMode={"contain"} />
+              <Text size16 style={{ fontWeight: showBuilding ? "bold" : "normal" ,position:'absolute' ,left :55 }} >{nameApartment} {"\t"}  </Text >
+              <Image source={showBuilding ? images.icDrop : images.icDrop1} style={{ width: 10, height: 10 , position :'absolute' ,right :40 }} resizeMode={"contain"} />
             </TouchableOpacity>
 
           </View>

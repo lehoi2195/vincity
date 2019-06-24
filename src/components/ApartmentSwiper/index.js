@@ -35,7 +35,7 @@ export default class ApartmentSwiper extends Component {
             
             >
                 <Swiper
-                    showsButtons
+                    //showsButtons
                     ref={swiper => {
                         this.swiper = swiper;
                     }}

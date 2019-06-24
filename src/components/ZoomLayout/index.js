@@ -36,10 +36,11 @@ export default class ZoomLayout extends Component {
     const { zoomScale } = this.state;
     return (
       <ScrollView
-      
+
         ref={this.refZoomLayout}
         onScroll={event => {
           console.log("onScrolrfrgerterterterl", event.nativeEvent);
+          console.log(event.nativeEvent.contentOffset.y);
         }}
         contentContainerStyle={style}
         maximumZoomScale={maxZoom}

@@ -47,7 +47,7 @@ export default class HeaderSwiper extends Component {
         >
 
           <Swiper
-            showsButtons
+            //showsButtons
             ref={swiper => {
               this.swiper = swiper;
             }}
