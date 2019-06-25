@@ -17,6 +17,7 @@ import { getToken, isRequestPending } from "@store/selectors";
 import AppStyles from "@styles";
 import Voucher from './Voucher';
 import VoucherDetail from "./VoucherDetail";
+import { scale, verticalScale } from '@utils/scale';
 class VoucherScreen extends Component {
   constructor(props) {
     super(props)
@@ -59,22 +60,22 @@ class VoucherScreen extends Component {
       <View style={{ paddingHorizontal: 31, paddingVertical: 105 }}>
         <View row>
           <TouchableOpacity onPress={() => this.setState({ showDetail: true })}>
-            <Image source={{ uri: data[0].thumbnail }} style={{ width: 866, height: 421 }} />
+            <Image source={{ uri: data[0].thumbnail }} style={{ width: scale(866), height: verticalScale(421) }} />
           </TouchableOpacity>
           <TouchableOpacity style={{ marginLeft: 20 }}>
-            <Image source={{ uri: data[1].thumbnail }} style={{ width: 423, height: 421 }} />
+            <Image source={{ uri: data[1].thumbnail }} style={{ width: scale(423), height: verticalScale(421) }} />
           </TouchableOpacity>
         </View>
         <View row style={{ marginTop: 20 }}>
-          <Image source={{ uri: data[2].thumbnail }} style={{ width: 423, height: 421 }} />
+          <Image source={{ uri: data[2].thumbnail }} style={{ width: scale(423), height: verticalScale(421) }} />
           <View style={{ marginLeft: 20 }}>
-            <Image source={{ uri: data[3].thumbnail }} style={{ width: 423, height: 202 }} />
-            <Image source={{ uri: data[4].thumbnail }} style={{ width: 423, height: 202, marginTop: 20 }} />
+            <Image source={{ uri: data[3].thumbnail }} style={{ width: scale(423), height: verticalScale(202) }} />
+            <Image source={{ uri: data[4].thumbnail }} style={{ width: scale(423), height: verticalScale(202), marginTop: 20 }} />
           </View>
 
           <View style={{ marginLeft: 20 }}>
-            <Image source={{ uri: data[5].thumbnail }} style={{ width: 423, height: 202 }} />
-            <Image source={{ uri: data[6].thumbnail }} style={{ width: 423, height: 202, marginTop: 20 }} />
+            <Image source={{ uri: data[5].thumbnail }} style={{ width: scale(423), height: verticalScale(202) }} />
+            <Image source={{ uri: data[6].thumbnail }} style={{ width: scale(423), height: verticalScale(202), marginTop: 20 }} />
           </View>
         </View>
       </View>
@@ -100,7 +101,9 @@ class VoucherScreen extends Component {
         keyExtractor={index => index.toString()}
         renderItem={({ item, index }) => {
           return (
-            <Voucher content={item.title} />
+            <Voucher
+              onPress={() => this.setState({ indexSelected: index })}
+              hightlight={this.state.indexSelected === index} content={item.title} />
           );
         }}
       />

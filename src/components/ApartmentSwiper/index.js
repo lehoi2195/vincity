@@ -9,7 +9,7 @@ import { View } from "native-base";
 import Swiper from "../../components/Swiper";
 
 import images from "../../assets/images";
-
+import { scale, verticalScale } from "@utils/scale";
 export default class ApartmentSwiper extends Component {
 
     componentDidMount() { }
@@ -41,8 +41,8 @@ export default class ApartmentSwiper extends Component {
                     }}
                     removeClippedSubviews={false}
                     style={styles.slide}
-                    height={709}
-                    width={863}
+                    height={verticalScale(709)}
+                    width={scale(863)}
                     loop
                     dot={<View style={styles.dot} />}
                     activeDot={<View style={styles.activeDot} />}
@@ -67,18 +67,18 @@ export default class ApartmentSwiper extends Component {
 
 const styles = StyleSheet.create({
     swiper: {
-        width: 863,
-        height: 670
+        width: scale(863),
+        height: verticalScale(670)
     },
 
     slide: {},
     viewSlide: {
-        height: 863,
-        width: 709
+        height: verticalScale(709),
+        width: scale(863)
     },
     imageSlide: {
-        width: 863,
-        height: 709
+        width: scale(863),
+        height: verticalScale(709)
     },
     dot: {
         backgroundColor: "#F0F0F0",
